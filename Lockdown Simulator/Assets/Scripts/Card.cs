@@ -1,33 +1,54 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class Card : MonoBehaviour {
-    public Text touchText;
-    public Text boxText;
-
+    //values of the card itself
     private int nActionPointCost;
+    private Color myColor;
+
+    //values for calculating dragging
+    public float fReturnSpeed;
+    private bool bHeld = false;
+    private Vector3 v3InitialPosition;
+    private Vector3 v3GrabOffset;
+    private Vector3 v3TouchPosition;
 
     void Start() {
         //improve this to draw from a pool, but for now this is okay
         nActionPointCost = Random.Range(1, 11);
+        myColor = GetComponent<SpriteRenderer>().color;
+        v3InitialPosition = transform.position;
     }
 
-    // Update is called once per frame
     void Update() {
-        //if (Input.touchCount > 0) {
-        //    Touch touch = Input.GetTouch(0);
-        //    Vector2 pos = Camera.main.ScreenToWorldPoint(touch.position);
-        //    transform.position = pos;
-        //    touchText.text = "TouchX: " + touch.position.x + "\nTouchY: " + touch.position.y;
-        //    boxText.text = "BoxX: " + transform.position.x + "\nBoxY: " + transform.position.y
-        //        +"\nBoxZ: " + transform.position.z + "\nBoxScaleX: " + transform.localScale.x
-        //        +"\nBoxScaleY: " + transform.localScale.y;
-        //} else {
-        //    touchText.text = "TouchX: Nothing\nTouchY: Nothing";
-        //}
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended) {
-            Touch touch = Input.GetTouch(0);
-            Vector2 pos = Camera.main.ScreenToWorldPoint(touch.position);
+        if (!bHeld && transform.position != v3InitialPosition) {
+            //if not held, Lerp back to the initial position
+            transform.position = Vector3.Lerp(transform.position, v3InitialPosition, fReturnSpeed * Time.deltaTime);
+            v3TouchPosition = v3InitialPosition;
+        } else if (bHeld) {
+            transform.position = v3TouchPosition - v3GrabOffset;
         }
+    }
+
+    public void HitCard(Vector3 v3Pos) {
+        Debug.Log("Hit card with cost " + nActionPointCost);
+
+        v3GrabOffset.x = v3Pos.x - transform.position.x;
+        v3GrabOffset.y = v3Pos.y - transform.position.y;
+        v3GrabOffset.z = 0;
+        v3TouchPosition = v3Pos;
+        v3TouchPosition.z = v3InitialPosition.z;
+
+        GetComponent<SpriteRenderer>().color = Color.gray;
+        bHeld = true;
+    }
+    public void LiftCard() {
+        Debug.Log("Hit card with cost " + nActionPointCost);
+
+        GetComponent<SpriteRenderer>().color = myColor;
+        bHeld = false;
+    }
+    public void MoveCard(Vector3 v3Pos) {
+        v3TouchPosition = v3Pos;
+        v3TouchPosition.z = v3InitialPosition.z;
     }
 }
