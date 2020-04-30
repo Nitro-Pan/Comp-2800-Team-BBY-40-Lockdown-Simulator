@@ -11,9 +11,10 @@ public class DialogueManager : MonoBehaviour {
 
     private Queue<string> sentences;
 
-    Coroutine sentenceBox;
+    //used so that if the user clicks too fast the coroutine can be stopped
+    //and started again without conflicting.
+    private Coroutine sentenceBox;
 
-    // Start is called before the first frame update
     void Start() {
         sentences = new Queue<string>();
     }
@@ -21,7 +22,7 @@ public class DialogueManager : MonoBehaviour {
     public void StartDialogue(Dialogue dialogue) {
         animator.SetBool("isOpen", true);
 
-        nameText.text = dialogue.name;
+        nameText.text = dialogue.sName;
 
         sentences.Clear();
 
@@ -50,11 +51,13 @@ public class DialogueManager : MonoBehaviour {
         dialogueText.text = "";
         foreach (char c in sentence.ToCharArray()) {
             dialogueText.text += c;
+            //wait for one frame before running the loop again
             yield return null;
         }
     }
 
     public void EndDialogue() {
         animator.SetBool("isOpen", false);
+        sentenceBox = null;
     }
 }
