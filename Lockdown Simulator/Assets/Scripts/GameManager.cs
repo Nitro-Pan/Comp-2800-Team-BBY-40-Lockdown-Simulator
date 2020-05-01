@@ -9,13 +9,21 @@ public class GameManager : MonoBehaviour {
     public Text boxText;
 
     public float fResidentHappy;
+    public int nActionPoints;
+    private int nActionPointTotal;
+    public Text textActionPoints;
 
     private GameObject goHitCard;
 
+    //things to see if dialogue is open or not
+    public GameObject goDialogueManager;
+    private DialogueManager dm;
+
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+        dm = goDialogueManager.GetComponent<DialogueManager>();
+        nActionPointTotal = nActionPoints;
+        UseActionPoints(10);
     }
 
     // Update is called once per frame
@@ -25,7 +33,7 @@ public class GameManager : MonoBehaviour {
 
     private void DetectCardTouch() {
         //if there is at least one finger on the screen
-        if (Input.touchCount > 0) {
+        if (Input.touchCount > 0 && !dm.bDialogueOpen) {
             Touch touch = Input.GetTouch(0);
             Vector3 pos = Camera.main.ScreenToWorldPoint(touch.position);
             //find first frame where the card is touched
@@ -38,12 +46,8 @@ public class GameManager : MonoBehaviour {
                 goHitCard = c2DHitObj.gameObject;
                 //find last frame where the card is touched
             } else if (Input.GetTouch(0).phase == TouchPhase.Ended) {
-                GameObject[] cards = GameObject.FindGameObjectsWithTag("Card");
-                foreach (GameObject g in cards) {
-                    Card c;
-                    if ((c = g.GetComponent<Card>()) != null) {
-                        c.LiftCard();
-                    }
+                if (goHitCard != null) {
+                    goHitCard.GetComponent<Card>().LiftCard();
                 }
                 //update the card if it is being dragged
             } else if (Input.GetTouch(0).phase == TouchPhase.Moved) {
@@ -56,5 +60,20 @@ public class GameManager : MonoBehaviour {
             touchText.text = "no touch information";
             boxText.text = "no box information";
         }
+    }
+
+    public void UseActionPoints(int nUseAP) {
+        if (nActionPoints - nUseAP >= 0) {
+            nActionPoints -= nUseAP;
+            textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
+        }
+    }
+    private void FillActionPoints() {
+        nActionPoints = nActionPointTotal;
+        textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
+    }
+
+    public void ProcessDay() {
+        FillActionPoints();
     }
 }

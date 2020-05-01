@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour {
     //values of the card itself
@@ -9,14 +10,24 @@ public class Card : MonoBehaviour {
     public float fReturnSpeed;
     private bool bHeld = false;
     private Vector3 v3InitialPosition;
+    private Vector3 v3OpenPosition;
     private Vector3 v3GrabOffset;
     private Vector3 v3TouchPosition;
+
+    //Game impact things
+    public GameObject gameManagerObject;
+    private GameManager gm;
+    public Text textApCost;
 
     void Start() {
         //improve this to draw from a pool, but for now this is okay
         nActionPointCost = Random.Range(1, 11);
         myColor = GetComponent<SpriteRenderer>().color;
         v3InitialPosition = transform.position;
+
+        gm = gameManagerObject.GetComponent<GameManager>();
+
+        textApCost.text = "-" + nActionPointCost + "AP";
     }
 
     void Update() {
@@ -44,11 +55,19 @@ public class Card : MonoBehaviour {
     public void LiftCard() {
         Debug.Log("Hit card with cost " + nActionPointCost);
 
+        if (Mathf.Abs(transform.position.x - v3InitialPosition.x) < 0.02f && Mathf.Abs(transform.position.y - v3InitialPosition.y) < 0.02f) {
+            ClickCard();
+        }
+
         GetComponent<SpriteRenderer>().color = myColor;
         bHeld = false;
     }
     public void MoveCard(Vector3 v3Pos) {
         v3TouchPosition = v3Pos;
         v3TouchPosition.z = v3InitialPosition.z;
+    }
+
+    private void ClickCard() {
+        gm.UseActionPoints(nActionPointCost);
     }
 }

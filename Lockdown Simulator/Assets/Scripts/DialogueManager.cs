@@ -9,6 +9,8 @@ public class DialogueManager : MonoBehaviour {
     public Text dialogueText;
     public Animator animator;
 
+    public bool bDialogueOpen;
+
     private Queue<string> sentences;
 
     //used so that if the user clicks too fast the coroutine can be stopped
@@ -21,6 +23,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void StartDialogue(Dialogue dialogue) {
         animator.SetBool("isOpen", true);
+        bDialogueOpen = true;
 
         nameText.text = dialogue.sName;
 
@@ -58,6 +61,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue() {
         animator.SetBool("isOpen", false);
+        bDialogueOpen = false;
         sentenceBox = null;
     }
 }
