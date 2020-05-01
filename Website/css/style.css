@@ -1,0 +1,8 @@
+.bg-blue {
+    background-color: rgb(169, 214, 240);
+}
+
+.fill {
+    min-height: 100vh;
+    height: 100%;
+}
