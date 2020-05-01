@@ -1717,10 +1717,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sName: The Next Day...
+    sName: Invalid Box
     sentences:
-    - A day has passed, here's what happened
-    - You died lmao
+    - A day has passed, here's some test dialogue
+    - Lots of lovely test dialogue
 --- !u!61 &1643320590
 BoxCollider2D:
   m_ObjectHideFlags: 0

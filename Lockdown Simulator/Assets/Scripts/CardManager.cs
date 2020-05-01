@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour {
+public class CardManager : MonoBehaviour {
     //values related to debug
     public Text touchText;
     public Text boxText;
@@ -44,6 +44,9 @@ public class GameManager : MonoBehaviour {
                     c2DHitObj.gameObject.GetComponent<Card>().HitCard(pos);
                 }
                 goHitCard = c2DHitObj.gameObject;
+                foreach (GameObject card in GameObject.FindGameObjectsWithTag("Card")) {
+                    if (card != goHitCard) card.GetComponent<Card>().ForceDown();
+                }
                 //find last frame where the card is touched
             } else if (Input.GetTouch(0).phase == TouchPhase.Ended) {
                 if (goHitCard != null) {
@@ -72,8 +75,10 @@ public class GameManager : MonoBehaviour {
         nActionPoints = nActionPointTotal;
         textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
     }
-
     public void ProcessDay() {
         FillActionPoints();
+        foreach (GameObject card in GameObject.FindGameObjectsWithTag("Card")) {
+            card.GetComponent<Card>().ForceDown();
+        }
     }
 }
