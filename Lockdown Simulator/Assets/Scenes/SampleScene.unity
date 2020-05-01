@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.754717, g: 0, b: 0.395935, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -757,7 +757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxText: {fileID: 455354717}
   nActionPoints: 10
-  nDaysToIncreasePoints: 0
+  nDaysToIncreasePoints: 8
   textActionPoints: {fileID: 1269970026}
   goDialogueManager: {fileID: 973342286}
   rm: {fileID: 651454985}
