@@ -9,6 +9,9 @@ public class DialogueManager : MonoBehaviour {
     public Text dialogueText;
     public Animator animator;
 
+    [HideInInspector]
+    public bool bDialogueOpen;
+
     private Queue<string> sentences;
 
     //used so that if the user clicks too fast the coroutine can be stopped
@@ -20,17 +23,20 @@ public class DialogueManager : MonoBehaviour {
     }
 
     public void StartDialogue(Dialogue dialogue) {
-        animator.SetBool("isOpen", true);
+        if (!bDialogueOpen) {
+            animator.SetBool("isOpen", true);
+            bDialogueOpen = true;
 
-        nameText.text = dialogue.sName;
+            nameText.text = dialogue.sName;
 
-        sentences.Clear();
+            sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences) {
-            sentences.Enqueue(sentence);
+            foreach (string sentence in dialogue.sentences) {
+                sentences.Enqueue(sentence);
+            }
+
+            DisplayNextSentence();
         }
-
-        DisplayNextSentence();
     }
 
     public void DisplayNextSentence() {
@@ -58,6 +64,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue() {
         animator.SetBool("isOpen", false);
+        bDialogueOpen = false;
         sentenceBox = null;
     }
 }
