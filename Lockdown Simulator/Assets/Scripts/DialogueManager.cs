@@ -22,18 +22,20 @@ public class DialogueManager : MonoBehaviour {
     }
 
     public void StartDialogue(Dialogue dialogue) {
-        animator.SetBool("isOpen", true);
-        bDialogueOpen = true;
+        if (!bDialogueOpen) {
+            animator.SetBool("isOpen", true);
+            bDialogueOpen = true;
 
-        nameText.text = dialogue.sName;
+            nameText.text = dialogue.sName;
 
-        sentences.Clear();
+            sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences) {
-            sentences.Enqueue(sentence);
+            foreach (string sentence in dialogue.sentences) {
+                sentences.Enqueue(sentence);
+            }
+
+            DisplayNextSentence();
         }
-
-        DisplayNextSentence();
     }
 
     public void DisplayNextSentence() {
