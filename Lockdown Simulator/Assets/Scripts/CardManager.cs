@@ -42,17 +42,19 @@ public class CardManager : MonoBehaviour {
                 if (c2DHitObj != null && c2DHitObj.CompareTag("Card")) {
                     //hit a card
                     c2DHitObj.gameObject.GetComponent<Card>().HitCard(pos);
+                    goHitCard = c2DHitObj.gameObject;
+                } else {
+                    goHitCard = null;
                 }
-                goHitCard = c2DHitObj.gameObject;
+
+                //every card that isn't selected will be forced down
                 foreach (GameObject card in GameObject.FindGameObjectsWithTag("Card")) {
                     if (card != goHitCard) card.GetComponent<Card>().ForceDown();
                 }
-                //find last frame where the card is touched
             } else if (Input.GetTouch(0).phase == TouchPhase.Ended) {
                 if (goHitCard != null) {
                     goHitCard.GetComponent<Card>().LiftCard();
                 }
-                //update the card if it is being dragged
             } else if (Input.GetTouch(0).phase == TouchPhase.Moved) {
                 if (goHitCard != null) {
                     goHitCard.GetComponent<Card>().MoveCard(pos);
@@ -80,5 +82,6 @@ public class CardManager : MonoBehaviour {
         foreach (GameObject card in GameObject.FindGameObjectsWithTag("Card")) {
             card.GetComponent<Card>().ForceDown();
         }
+        dm.StartDialogue(RandomEvent.CreateEvent().dialogue);
     }
 }
