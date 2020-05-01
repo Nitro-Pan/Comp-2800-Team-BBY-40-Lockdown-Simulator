@@ -23,6 +23,18 @@ public class RandomEvent {
         dialogue.sentences = e.sentences;
     }
 
+    private RandomEvent(float fHappiness, float fResidents) {
+        //TODO: seed events with fHappiness and fResidents
+        //so that it draws from a valid pool of events with
+        //some fuzziness so it isn't too consistent
+        DayEndEvent e = new DayEndEvent((EventLevel)Random.Range(0, System.Enum.GetValues(typeof(EventLevel)).Length));
+
+        dialogue = new Dialogue() {
+            sName = e.sName,
+        };
+        dialogue.sentences = e.sentences;
+    }
+
     private class DayEndEvent {
         public string[] sentences;
         public string sName;
@@ -58,5 +70,9 @@ public class RandomEvent {
 
     public static RandomEvent CreateEvent() {
         return new RandomEvent();
+    }
+
+    public static RandomEvent CreateSeededEvent(float fHappiness, float fResidents) {
+        return new RandomEvent(fHappiness, fResidents);
     }
 }
