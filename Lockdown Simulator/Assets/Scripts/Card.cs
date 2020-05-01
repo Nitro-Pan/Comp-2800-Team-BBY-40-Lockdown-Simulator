@@ -68,6 +68,7 @@ public class Card : MonoBehaviour {
         if (fAccelerationY > 0 || Mathf.Abs(transform.position.y - v3InitialPosition.y) > 0.1f) {
             fAccelerationY = -1.0f;
             transform.position += Vector3.down * 0.01f;
+            bHeld = false;
         }
     }
 

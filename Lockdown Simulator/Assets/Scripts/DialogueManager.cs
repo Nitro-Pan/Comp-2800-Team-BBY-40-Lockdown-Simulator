@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour {
     public Text dialogueText;
     public Animator animator;
 
+    [HideInInspector]
     public bool bDialogueOpen;
 
     private Queue<string> sentences;
