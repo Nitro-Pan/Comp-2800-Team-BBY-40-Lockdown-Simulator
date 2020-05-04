@@ -81,11 +81,13 @@ public class CardManager : MonoBehaviour {
         textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
     }
     public void ProcessDay() {
-        rm.EndDay();
-        if (rm.nDay % nDaysToIncreasePoints == 0) nActionPointTotal += 1;
-        FillActionPoints();
-        foreach (GameObject card in GameObject.FindGameObjectsWithTag("Card")) {
-            card.GetComponent<Card>().RerollCard();
+        if (!dm.bDialogueOpen) {
+            rm.EndDay();
+            if (rm.nDay % nDaysToIncreasePoints == 0) nActionPointTotal += 1;
+            FillActionPoints();
+            foreach (GameObject card in GameObject.FindGameObjectsWithTag("Card")) {
+                card.GetComponent<Card>().RerollCard();
+            }
         }
     }
 }
