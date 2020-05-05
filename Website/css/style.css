@@ -1,3 +1,16 @@
+/* Background Color of nav bar */
+.navbar-custom {
+    background-color: rgb(241, 111, 36);
+}
+/* Font Color of Links */
+.navbar-custom .nav-link {
+    color: rgb(7, 7, 7);
+}
+/* Link Hover Color */
+.navbar-custom .nav-link:hover {
+    color: #ffffff;
+}
+
 .bg-blue {
     background-color: rgb(169, 214, 240);
 }
@@ -31,3 +44,4 @@
 footer {
     background-color: rgb(52, 58, 64);
 }
+
