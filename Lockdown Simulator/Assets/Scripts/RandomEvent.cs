@@ -69,6 +69,9 @@ public class RandomEvent {
                 "You were sleeping peacefully when all of a sudden, you were attacked in your sleep!", 
                 "You did not survive the encounter and unfortunately lost all of your residents because you died.",
                 "Looks like you weren't such a good guy after all..."));
+            dayEndEventsBad.Add(new DayEndEvent("Riot", -30, -10,
+                "It's getting bad. People are restless, and they are no longer listening to reason.",
+                "Rooms are being lit on fire, looting and violence has taken over the building."));
             //okay events
             dayEndEventsOkay.Add(new DayEndEvent("Rain", -1, 0, 
                 "It's raining today, so your residents aren't as happy as they normally would be."));
