@@ -6,6 +6,8 @@ public class RandomEvent {
 
     [HideInInspector]
     public Dialogue dialogue;
+    public float fHappinessGain;
+    public float fResidentGain;
 
     private enum EventLevel {
         BAD,
@@ -21,6 +23,8 @@ public class RandomEvent {
             sName = e.sName,
         };
         dialogue.sentences = e.sentences;
+        fHappinessGain = e.fHappinessGain;
+        fResidentGain = e.fResidentGain;
     }
 
     private RandomEvent(float fHappiness, float fResidents) {
@@ -33,6 +37,8 @@ public class RandomEvent {
             sName = e.sName,
         };
         dialogue.sentences = e.sentences;
+        fHappinessGain = e.fHappinessGain;
+        fResidentGain = e.fResidentGain;
     }
 
 
@@ -72,6 +78,8 @@ public class RandomEvent {
             //okay events
             dayEndEventsOkay.Add(new DayEndEvent("Rain", -1, 0, 
                 "It's raining today, so your residents aren't as happy as they normally would be."));
+            dayEndEventsOkay.Add(new DayEndEvent("Silent Night", 0, 0,
+                "Nothing happened tonight, lucky you. What does this mean for the next night...?"));
             //good events
             dayEndEventsGood.Add(new DayEndEvent("Hello, Neighbour!", 3, 0,
                 "One of your residents said hello to you today and it make you happy.", 

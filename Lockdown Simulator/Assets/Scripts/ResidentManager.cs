@@ -31,10 +31,19 @@ public class ResidentManager : MonoBehaviour {
     }
 
     public void EndDay() {
-        dm.StartDialogue(RandomEvent.CreateSeededEvent(fHappiness, fResident).dialogue);
+        RandomEvent re = RandomEvent.CreateSeededEvent(fHappiness, fResident);
+        dm.StartDialogue(re.dialogue);
         nDay += 1;
+        fHappiness = Mathf.Clamp(fHappiness += re.fHappinessGain, 0, 100);
+        fResident = Mathf.Clamp(fResident += re.fResidentGain, 0, 100);
+        if (fResident <= 0)
+            EndGame();
         textDay.text = nDay.ToString();
         textHappiness.text = "Happiness: " + fHappiness + " / " + fTotalHappiness;
         textResident.text = "Residents: " + fResident + " / " + fTotalResident;
+    }
+
+    private void EndGame() {
+        //TODO end the game somehow
     }
 }
