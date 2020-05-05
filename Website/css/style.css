@@ -1,6 +1,6 @@
 /* Background Color of nav bar */
 .navbar-custom {
-    background-color: rgb(241, 111, 36);
+    background-color: #7BDFF2;
 }
 /* Font Color of Links */
 .navbar-custom .nav-link {
@@ -11,13 +11,23 @@
     color: #ffffff;
 }
 
+/* Link Active Color */
+.navbar-custom .nav-link.active {
+    color: #EFF7F6;
+}
+
 .bg-blue {
-    background-color: rgb(169, 214, 240);
+    background-color: #B2F7EF;
+}
+
+body {
+    background-color: #EFF7F6;
 }
 
 .fill {
     min-height: 100vh;
     height: 100%;
+    min-width: 80vw;
 }
 
 .avatar {
