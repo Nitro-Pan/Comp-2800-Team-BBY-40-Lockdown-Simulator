@@ -301,21 +301,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 808086629}
     m_Modifications:
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.48584908
-      objectReference: {fileID: 0}
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.8127022
-      objectReference: {fileID: 0}
     - target: {fileID: 9060275009807371089, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -374,7 +359,7 @@ PrefabInstance:
     - target: {fileID: 9060275009807371091, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
       propertyPath: m_Name
-      value: Card Green
+      value: Card2
       objectReference: {fileID: 0}
     - target: {fileID: 9060275009807371118, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
@@ -934,21 +919,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 808086629}
     m_Modifications:
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.5176213
-      objectReference: {fileID: 0}
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.514151
-      objectReference: {fileID: 0}
     - target: {fileID: 9060275009807371089, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1007,7 +977,7 @@ PrefabInstance:
     - target: {fileID: 9060275009807371091, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
       propertyPath: m_Name
-      value: Card Red
+      value: Card3
       objectReference: {fileID: 0}
     - target: {fileID: 9060275009807371118, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
@@ -1337,26 +1307,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 808086629}
     m_Modifications:
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.6745283
-      objectReference: {fileID: 0}
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.90933293
-      objectReference: {fileID: 0}
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9060275009807371089, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1400,7 +1350,7 @@ PrefabInstance:
     - target: {fileID: 9060275009807371091, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
       propertyPath: m_Name
-      value: Card Blue
+      value: Card4
       objectReference: {fileID: 0}
     - target: {fileID: 9060275009807371118, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
@@ -1952,7 +1902,7 @@ PrefabInstance:
     - target: {fileID: 9060275009807371091, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
       propertyPath: m_Name
-      value: Card Purple
+      value: Card1
       objectReference: {fileID: 0}
     - target: {fileID: 9060275009807371118, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
