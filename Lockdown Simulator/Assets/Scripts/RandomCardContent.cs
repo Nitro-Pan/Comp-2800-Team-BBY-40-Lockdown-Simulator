@@ -69,7 +69,7 @@ public class RandomCardContent {
             threeCostCards.Add(new CardContent(3, "Shopping",
                 "It's that time of the week again, you need some supplies and shopping is the best way to fix that.",
                 "Cards/Shopping_Card"));
-            threeCostCards.Add(new CardContent(3, "Buy Masks",
+            threeCostCards.Add(new CardContent(3, "Face Masks",
                 "You found some facemasks at the store!. You decide to give them out to your residents.",
                 "Cards/Face_Mask_Card"));
             //four cost cards
