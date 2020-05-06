@@ -1,6 +1,12 @@
-/* Background Color of nav bar */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+/* Apply DM Mono Font to all */
+* {
+    font-family: 'DM Mono', monospace;
+}
+
+/* Color of nav bar */
 .navbar-custom {
-    background-color: #7BDFF2;
+    background-color: rgb(103, 173, 230);
 }
 /* Font Color of Links */
 .navbar-custom .nav-link {
@@ -17,7 +23,7 @@
 }
 
 .bg-blue {
-    background-color: #B2F7EF;
+    background-color: rgb(241, 240, 172);
 }
 
 body {
