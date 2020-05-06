@@ -76,10 +76,12 @@ public class CardManager : MonoBehaviour {
         }
         return bPointsUsed;
     }
+
     private void FillActionPoints() {
         nActionPoints = nActionPointTotal;
         textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
     }
+
     public void ProcessDay() {
         if (!dm.bDialogueOpen) {
             rm.EndDay();
