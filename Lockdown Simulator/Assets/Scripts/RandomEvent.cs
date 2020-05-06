@@ -98,11 +98,11 @@ public class RandomEvent {
                 case EventLevel.BAD:
                     return dayEndEventsBad[Random.Range(0, dayEndEventsBad.Count)];
                 case EventLevel.OKAY:
-                    return dayEndEventsOkay[Random.Range(0, dayEndEventsBad.Count)];
+                    return dayEndEventsOkay[Random.Range(0, dayEndEventsOkay.Count)];
                 case EventLevel.GOOD:
-                    return dayEndEventsGood[Random.Range(0, dayEndEventsBad.Count)];
+                    return dayEndEventsGood[Random.Range(0, dayEndEventsGood.Count)];
                 case EventLevel.EXCELLENT:
-                    return dayEndEventsExcellent[Random.Range(0, dayEndEventsBad.Count)];
+                    return dayEndEventsExcellent[Random.Range(0, dayEndEventsExcellent.Count)];
             }
             return new DayEndEvent("Failed", 0, 0, "Failed to get an event");
         }
