@@ -35,8 +35,8 @@ public class RandomEvent {
 
         dialogue = new Dialogue() {
             sName = e.sName,
+            sentences = e.sentences
         };
-        dialogue.sentences = e.sentences;
         fHappinessGain = e.fHappinessGain;
         fResidentGain = e.fResidentGain;
     }

@@ -39,7 +39,7 @@ public class Card : MonoBehaviour {
 
         cm = gameManagerObject.GetComponent<CardManager>();
 
-        textApCost.text = "-" + nActionPointCost + "AP";
+        textApCost.text = nActionPointCost.ToString();
     }
 
     void Update() {
@@ -59,7 +59,7 @@ public class Card : MonoBehaviour {
             bRerolling = false;
             //TODO: Draw from an event pool
             nActionPointCost = Random.Range(1, 11);
-            textApCost.text = "-" + nActionPointCost + "AP";
+            textApCost.text = nActionPointCost.ToString();
             fReturnSpeed = 10.0f;
         } else if (bRerolling) {
             transform.position = Vector3.Lerp(transform.position, v3RerollingPosition, fReturnSpeed * Time.deltaTime);
