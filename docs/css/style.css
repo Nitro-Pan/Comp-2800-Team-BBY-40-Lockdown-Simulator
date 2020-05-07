@@ -52,7 +52,7 @@ body {
 
 .aboutTitle {
     text-align: center;
-    font-size: 20pt;
+    font-size: 30pt;
 }
 
 .info {
@@ -64,7 +64,4 @@ body {
     font-weight: bold;
 }
 
-footer {
-    background-color: rgb(52, 58, 64);
-}
 
