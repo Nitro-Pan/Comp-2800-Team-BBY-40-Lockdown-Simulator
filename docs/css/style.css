@@ -23,7 +23,7 @@
 }
 
 .bg-blue {
-    background-color: rgb(241, 240, 172);
+    background-color: rgb(177, 176, 174);
 }
 
 body {
@@ -36,6 +36,13 @@ body {
     min-width: 80vw;
 }
 
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  
 .avatar {
     width: 150px;
     height: 150px;
