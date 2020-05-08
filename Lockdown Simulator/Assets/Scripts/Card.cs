@@ -112,7 +112,7 @@ public class Card : MonoBehaviour {
     
 
     private bool ClickCard() {
-        return cm.UseActionPoints(content.nCardCost);
+        return cm.ProcessCardContent(content);
     }
 
     public void RerollCard() {

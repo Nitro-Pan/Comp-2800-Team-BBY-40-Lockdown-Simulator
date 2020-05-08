@@ -68,10 +68,13 @@ public class CardManager : MonoBehaviour {
         }
     }
 
-    public bool UseActionPoints(int nUseAP) {
+    public bool ProcessCardContent(RandomCardContent c) {
         bool bPointsUsed;
-        if (bPointsUsed = nActionPoints - nUseAP >= 0) {
-            nActionPoints -= nUseAP;
+        if (bPointsUsed = nActionPoints - c.nCardCost >= 0) {
+            nActionPoints -= c.nCardCost;
+            rm.fHappiness = Mathf.Clamp(rm.fHappiness + c.nHappinessGain, 0, 100);
+            rm.fResident = Mathf.Clamp(rm.fResident + c.nResidentGain, 0, 100);
+            rm.UpdateText();
             textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
         }
         return bPointsUsed;
