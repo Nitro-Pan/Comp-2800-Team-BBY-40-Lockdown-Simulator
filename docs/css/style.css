@@ -22,9 +22,54 @@
     color: #EFF7F6;
 }
 
+<<<<<<< HEAD
 .panel-group {
     width: 900px;
 }
+=======
+.bg-blue {
+    background-color: rgb(177, 176, 174);
+}
+
+body {
+    background-color: #EFF7F6;
+}
+
+.fill {
+    min-height: 100vh;
+    height: 100%;
+    min-width: 80vw;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.aboutTitle {
+    text-align: center;
+    font-size: 30pt;
+}
+
+.info {
+    padding-left: 45px;
+}
+
+.name {
+    text-align: center;
+    font-weight: bold;
+}
+
+>>>>>>> 8bf0fa3f0706987e1f6c8edbb1e0aa4e09cb50f5
 
 .panel {
     width: 700px;
