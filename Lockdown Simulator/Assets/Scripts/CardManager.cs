@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class CardManager : MonoBehaviour {
     //values related to debug
+    public Text touchText;
     public Text boxText;
 
+    public float fResidentHappy;
     public int nActionPoints;
-    public int nDaysToIncreasePoints;
     private int nActionPointTotal;
     public Text textActionPoints;
 
@@ -18,14 +19,11 @@ public class CardManager : MonoBehaviour {
     public GameObject goDialogueManager;
     private DialogueManager dm;
 
-    public ResidentManager rm;
-
     // Start is called before the first frame update
     void Start() {
         dm = goDialogueManager.GetComponent<DialogueManager>();
         nActionPointTotal = nActionPoints;
-        textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
-        if (nDaysToIncreasePoints == 0) nDaysToIncreasePoints = 1;
+        UseActionPoints(10);
     }
 
     // Update is called once per frame
@@ -64,28 +62,26 @@ public class CardManager : MonoBehaviour {
                 }
             }
         } else {
+            touchText.text = "no touch information";
             boxText.text = "no box information";
         }
     }
 
-    public bool UseActionPoints(int nUseAP) {
-        bool bPointsUsed;
-        if (bPointsUsed = nActionPoints - nUseAP >= 0) {
+    public void UseActionPoints(int nUseAP) {
+        if (nActionPoints - nUseAP >= 0) {
             nActionPoints -= nUseAP;
             textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
         }
-        return bPointsUsed;
     }
     private void FillActionPoints() {
         nActionPoints = nActionPointTotal;
         textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
     }
     public void ProcessDay() {
-        rm.EndDay();
-        if (rm.nDay % nDaysToIncreasePoints == 0) nActionPointTotal += 1;
         FillActionPoints();
         foreach (GameObject card in GameObject.FindGameObjectsWithTag("Card")) {
-            card.GetComponent<Card>().RerollCard();
+            card.GetComponent<Card>().ForceDown();
         }
+        dm.StartDialogue(RandomEvent.CreateEvent().dialogue);
     }
 }

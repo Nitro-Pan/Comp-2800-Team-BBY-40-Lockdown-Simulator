@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+/* Apply DM Mono Font to all */
+* {
+    font-family: 'DM Mono', monospace;
+}
+
+/* Color of nav bar */
+.navbar-custom {
+    background-color: grey;
+}
+/* Font Color of Links */
+.navbar-custom .nav-link {
+    color: rgb(7, 7, 7);
+}
+/* Link Hover Color */
+.navbar-custom .nav-link:hover {
+    color: #ffffff;
+}
+
+/* Link Active Color */
+.navbar-custom .nav-link.active {
+    color: #EFF7F6;
+}
+
+.panel-group {
+    width: 900px;
+}
+
+.panel {
+    width: 700px;
+}
+
+.navbar-brand {
+    margin: 0px;
+    padding: 0px;
+}
+
+.logo {
+    height: 50px;
+    padding: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.tate {
+    height: 200px;
+    width: 200px;
+}
+
+.jacob {
+    height: 200px;
+    width: 200px;
+}
+
+.sun {
+    height: 200px;
+    width: 200px;
+}
+
+.sirinam {
+    height: 200px;
+    width: 200px;
+}
+
+.apt {
+    height: 400px;
+    width: 300px;
+}
