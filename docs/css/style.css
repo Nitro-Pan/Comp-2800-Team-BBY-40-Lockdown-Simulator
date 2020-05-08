@@ -61,3 +61,11 @@
     height: 200px;
     width: 200px;
 }
+
+.apt {
+    height: 400px;
+    width: 300px;
+    position: absolute;
+    left: 70%;
+    top: 20%;
+}
