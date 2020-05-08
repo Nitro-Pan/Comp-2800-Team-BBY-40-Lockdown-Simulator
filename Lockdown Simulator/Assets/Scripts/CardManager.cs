@@ -72,8 +72,9 @@ public class CardManager : MonoBehaviour {
         bool bPointsUsed;
         if (bPointsUsed = nActionPoints - c.nCardCost >= 0) {
             nActionPoints -= c.nCardCost;
-            rm.fHappiness = Mathf.Clamp(rm.fHappiness + c.nHappinessGain, 0, 100);
-            rm.fResident = Mathf.Clamp(rm.fResident + c.nResidentGain, 0, 100);
+            RandomEvent.listLockedEvents.Add(c.func);
+            rm.fHappiness = Mathf.Clamp(rm.fHappiness + c.nHappinessGain, 0f, 100f);
+            rm.fInfectionRate = Mathf.Clamp(rm.fInfectionRate + c.fInfectionGain, 0f, 200f);
             rm.UpdateText();
             textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
         }

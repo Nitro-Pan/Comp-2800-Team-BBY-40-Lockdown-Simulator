@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomEvent {
-
+    public static List<EventFunction> listLockedEvents = new List<EventFunction>(5);
     [HideInInspector]
     public Dialogue dialogue;
     public float fHappinessGain;
-    public float fResidentGain;
+    public float fInfectionRate;
 
     private enum EventLevel {
         BAD,
@@ -24,7 +24,7 @@ public class RandomEvent {
         };
         dialogue.sentences = e.sentences;
         fHappinessGain = e.fHappinessGain;
-        fResidentGain = e.fResidentGain;
+        fInfectionRate = e.fResidentGain;
     }
 
     private RandomEvent(float fHappiness, float fResidents) {
@@ -38,7 +38,7 @@ public class RandomEvent {
             sentences = e.sentences
         };
         fHappinessGain = e.fHappinessGain;
-        fResidentGain = e.fResidentGain;
+        fInfectionRate = e.fResidentGain;
     }
 
 
@@ -71,7 +71,7 @@ public class RandomEvent {
 
         static DayEndEvent() {
             //bad events
-            dayEndEventsBad.Add(new DayEndEvent("Murdered", -10000, -10000, 
+            dayEndEventsBad.Add(new DayEndEvent("Murdered", -100, 100, 
                 "You were sleeping peacefully when all of a sudden, you were attacked in your sleep!", 
                 "You did not survive the encounter and unfortunately lost all of your residents because you died.",
                 "Looks like you weren't such a good guy after all..."));
@@ -94,6 +94,15 @@ public class RandomEvent {
         }
 
         public static DayEndEvent GetEvent(EventLevel type) {
+            //if anything has locked an event to happen, randomly select
+            if (listLockedEvents.Count > 0) {
+                EventFunction ef = listLockedEvents[Random.Range(0, listLockedEvents.Count)];
+                listLockedEvents.Clear();
+                switch (ef) {
+                    case EventFunction.WAVE_HELLO:
+                        return dayEndEventsGood[0];
+                }
+            }
             switch (type) {
                 case EventLevel.BAD:
                     return dayEndEventsBad[Random.Range(0, dayEndEventsBad.Count)];
