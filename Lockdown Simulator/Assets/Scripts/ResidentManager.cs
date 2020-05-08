@@ -43,6 +43,11 @@ public class ResidentManager : MonoBehaviour {
         textResident.text = "Residents: " + fResident + " / " + fTotalResident;
     }
 
+    public void UpdateText() {
+        textHappiness.text = "Happiness: " + fHappiness + " / " + fTotalHappiness;
+        textResident.text = "Residents: " + fResident + " / " + fTotalResident;
+    }
+
     private void EndGame() {
         //TODO end the game somehow
     }
