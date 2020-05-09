@@ -68,24 +68,32 @@ public class CardManager : MonoBehaviour {
         }
     }
 
-    public bool UseActionPoints(int nUseAP) {
+    public bool ProcessCardContent(RandomCardContent c) {
         bool bPointsUsed;
-        if (bPointsUsed = nActionPoints - nUseAP >= 0) {
-            nActionPoints -= nUseAP;
+        if (bPointsUsed = nActionPoints - c.nCardCost >= 0) {
+            nActionPoints -= c.nCardCost;
+            RandomEvent.listLockedEvents.Add(c.func);
+            rm.fHappiness = Mathf.Clamp(rm.fHappiness + c.nHappinessGain, 0f, 100f);
+            rm.fInfectionRate = Mathf.Clamp(rm.fInfectionRate + c.fInfectionGain, 0f, 200f);
+            rm.UpdateText();
             textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
         }
         return bPointsUsed;
     }
+
     private void FillActionPoints() {
         nActionPoints = nActionPointTotal;
         textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
     }
+
     public void ProcessDay() {
-        rm.EndDay();
-        if (rm.nDay % nDaysToIncreasePoints == 0) nActionPointTotal += 1;
-        FillActionPoints();
-        foreach (GameObject card in GameObject.FindGameObjectsWithTag("Card")) {
-            card.GetComponent<Card>().RerollCard();
+        if (!dm.bDialogueOpen) {
+            rm.EndDay();
+            if (rm.nDay % nDaysToIncreasePoints == 0) nActionPointTotal += 1;
+            FillActionPoints();
+            foreach (GameObject card in GameObject.FindGameObjectsWithTag("Card")) {
+                card.GetComponent<Card>().RerollCard();
+            }
         }
     }
 }
