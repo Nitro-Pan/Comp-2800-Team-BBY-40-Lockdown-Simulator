@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -181}
+  m_AnchoredPosition: {x: 0, y: -180.99976}
   m_SizeDelta: {x: 285, y: 142}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &27509626
@@ -301,21 +301,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 808086629}
     m_Modifications:
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.094117634
-      objectReference: {fileID: 0}
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.6431373
-      objectReference: {fileID: 0}
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.44182372
-      objectReference: {fileID: 0}
     - target: {fileID: 9060275009807371089, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -374,7 +359,7 @@ PrefabInstance:
     - target: {fileID: 9060275009807371091, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
       propertyPath: m_Name
-      value: Card Green
+      value: Card2
       objectReference: {fileID: 0}
     - target: {fileID: 9060275009807371118, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
@@ -934,21 +919,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 808086629}
     m_Modifications:
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.6431373
-      objectReference: {fileID: 0}
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.09908486
-      objectReference: {fileID: 0}
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.094117634
-      objectReference: {fileID: 0}
     - target: {fileID: 9060275009807371089, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1007,7 +977,7 @@ PrefabInstance:
     - target: {fileID: 9060275009807371091, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
       propertyPath: m_Name
-      value: Card Red
+      value: Card3
       objectReference: {fileID: 0}
     - target: {fileID: 9060275009807371118, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
@@ -1337,21 +1307,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 808086629}
     m_Modifications:
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.094117634
-      objectReference: {fileID: 0}
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.4896088
-      objectReference: {fileID: 0}
-    - target: {fileID: 9060275009807371088, guid: cb250170bfc2a024496ed7dd053f6780,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.6431373
-      objectReference: {fileID: 0}
     - target: {fileID: 9060275009807371089, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1395,7 +1350,7 @@ PrefabInstance:
     - target: {fileID: 9060275009807371091, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
       propertyPath: m_Name
-      value: Card Blue
+      value: Card4
       objectReference: {fileID: 0}
     - target: {fileID: 9060275009807371118, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
@@ -1947,7 +1902,7 @@ PrefabInstance:
     - target: {fileID: 9060275009807371091, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}
       propertyPath: m_Name
-      value: Card Purple
+      value: Card1
       objectReference: {fileID: 0}
     - target: {fileID: 9060275009807371118, guid: cb250170bfc2a024496ed7dd053f6780,
         type: 3}

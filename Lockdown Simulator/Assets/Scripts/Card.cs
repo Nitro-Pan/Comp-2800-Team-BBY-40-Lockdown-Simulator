@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour {
     //values of the card itself
-    private int nActionPointCost;
+    private RandomCardContent content;
     private Color myColor;
 
     //values for calculating dragging
@@ -24,10 +24,12 @@ public class Card : MonoBehaviour {
     public GameObject gameManagerObject;
     private CardManager cm;
     public Text textApCost;
+    public Text textName;
+    public Text textDescription;
 
     void Start() {
         //TODO: improve this to draw from a pool, but for now this is okay
-        nActionPointCost = Random.Range(1, 11);
+        content = RandomCardContent.GenerateRandomSeededCard(0, 0);
         myColor = GetComponent<SpriteRenderer>().color;
         v3InitialPosition = transform.position;
 
@@ -39,7 +41,10 @@ public class Card : MonoBehaviour {
 
         cm = gameManagerObject.GetComponent<CardManager>();
 
-        textApCost.text = "-" + nActionPointCost + "AP";
+        textApCost.text = content.nCardCost.ToString();
+        textDescription.text = content.sCardContent;
+        textName.text = content.sCardName;
+        GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(content.sImagePath);
     }
 
     void Update() {
@@ -58,8 +63,11 @@ public class Card : MonoBehaviour {
         } else if (bRerolling && Mathf.Abs(transform.position.y - v3RerollingPosition.y) < 0.3f) {
             bRerolling = false;
             //TODO: Draw from an event pool
-            nActionPointCost = Random.Range(1, 11);
-            textApCost.text = "-" + nActionPointCost + "AP";
+            content = RandomCardContent.GenerateRandomSeededCard(0, 0);
+            textApCost.text = content.nCardCost.ToString();
+            textDescription.text = content.sCardContent;
+            textName.text = content.sCardName;
+            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(content.sImagePath);
             fReturnSpeed = 10.0f;
         } else if (bRerolling) {
             transform.position = Vector3.Lerp(transform.position, v3RerollingPosition, fReturnSpeed * Time.deltaTime);
@@ -104,7 +112,7 @@ public class Card : MonoBehaviour {
     
 
     private bool ClickCard() {
-        return cm.UseActionPoints(nActionPointCost);
+        return cm.ProcessCardContent(content);
     }
 
     public void RerollCard() {
