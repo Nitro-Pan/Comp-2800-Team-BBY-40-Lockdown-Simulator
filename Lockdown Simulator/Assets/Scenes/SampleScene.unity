@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fHappiness: 100
-  fResident: 100
+  fInfectionRate: 5
   nDay: 0
   textHappiness: {fileID: 594481403}
   textResident: {fileID: 472078847}

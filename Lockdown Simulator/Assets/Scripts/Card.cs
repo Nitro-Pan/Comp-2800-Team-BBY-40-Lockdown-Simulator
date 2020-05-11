@@ -29,7 +29,9 @@ public class Card : MonoBehaviour {
 
     void Start() {
         //TODO: improve this to draw from a pool, but for now this is okay
-        content = RandomCardContent.GenerateRandomSeededCard(0, 0);
+        cm = gameManagerObject.GetComponent<CardManager>();
+
+        content = RandomCardContent.GenerateRandomSeededCard(0, 0, cm.rm.nDay);
         myColor = GetComponent<SpriteRenderer>().color;
         v3InitialPosition = transform.position;
 
@@ -38,8 +40,6 @@ public class Card : MonoBehaviour {
 
         v3RerollingPosition = v3InitialPosition;
         v3RerollingPosition.y = -10;
-
-        cm = gameManagerObject.GetComponent<CardManager>();
 
         textApCost.text = content.nCardCost.ToString();
         textDescription.text = content.sCardContent;
@@ -63,7 +63,7 @@ public class Card : MonoBehaviour {
         } else if (bRerolling && Mathf.Abs(transform.position.y - v3RerollingPosition.y) < 0.3f) {
             bRerolling = false;
             //TODO: Draw from an event pool
-            content = RandomCardContent.GenerateRandomSeededCard(0, 0);
+            content = RandomCardContent.GenerateRandomSeededCard(0, 0, cm.rm.nDay);
             textApCost.text = content.nCardCost.ToString();
             textDescription.text = content.sCardContent;
             textName.text = content.sCardName;
