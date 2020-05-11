@@ -22,9 +22,13 @@ public class RandomCardContent {
         sImagePath = card.sImagePath;
         func = card.func;
     }
-    private RandomCardContent(float fHappiness, float fResident) {
-        //TODO: use a formula to determine what card to draw
-        CardContent card = CardContent.GetCard(Random.Range(1, 11));
+    private RandomCardContent(float fHappiness, float fResident, int nDay) {
+        //max cost increases every 4 days, starting at 3, with a min of 2
+        //and a max of 11
+        int maxCost = Mathf.Clamp(Mathf.FloorToInt((1 / 4f) * nDay + 3), 2, 11);
+
+        //get a random card between 1 and the maxCost, exclusive
+        CardContent card = CardContent.GetCard(Random.Range(1, maxCost));
         nCardCost = card.nCardCost;
         nHappinessGain = card.nHappinessGain;
         fInfectionGain = card.fInfectionGain;
@@ -36,8 +40,8 @@ public class RandomCardContent {
     public static RandomCardContent GenerateRandomCard() {
         return new RandomCardContent();
     }
-    public static RandomCardContent GenerateRandomSeededCard(float fHappiness, float fResident) {
-        return new RandomCardContent(fHappiness, fResident);
+    public static RandomCardContent GenerateRandomSeededCard(float fHappiness, float fResident, int nDay) {
+        return new RandomCardContent(fHappiness, fResident, nDay);
     }
 
     private class CardContent {
