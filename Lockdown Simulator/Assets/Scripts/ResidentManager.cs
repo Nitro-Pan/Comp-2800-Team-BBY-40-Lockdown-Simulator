@@ -34,9 +34,9 @@ public class ResidentManager : MonoBehaviour {
         RandomEvent re = RandomEvent.CreateSeededEvent(fHappiness, fInfectionRate);
         dm.StartDialogue(re.dialogue);
         nDay += 1;
-        fHappiness = Mathf.Clamp(fHappiness += re.fHappinessGain, 0, 100);
-        fInfectionRate = Mathf.Clamp(fInfectionRate += re.fInfectionRate, 0, 200);
-        if (fInfectionRate <= 0)
+        fHappiness = Mathf.Clamp(fHappiness += re.fHappinessGain, 0, 100f);
+        fInfectionRate = Mathf.Clamp(fInfectionRate += re.fInfectionRate, 0, 100f);
+        if (fInfectionRate >= fTotalInfectionRate)
             EndGame();
         textDay.text = nDay.ToString();
         textHappiness.text = "Happiness: " + fHappiness + " / " + fTotalHappiness;
@@ -49,6 +49,7 @@ public class ResidentManager : MonoBehaviour {
     }
 
     private void EndGame() {
-        //TODO end the game somehow
+        //do something that isn't this lmao
+        Application.Quit();
     }
 }
