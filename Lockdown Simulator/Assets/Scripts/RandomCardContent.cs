@@ -35,6 +35,7 @@ public class RandomCardContent {
         sCardName = card.sCardName;
         sCardContent = card.sCardContent;
         sImagePath = card.sImagePath;
+        func = card.func;
     }
 
     public static RandomCardContent GenerateRandomCard() {
@@ -84,10 +85,10 @@ public class RandomCardContent {
                 "You wave and say hello to a resident. They like this and will probably wave back in the future.",
                 "Cards/Wave_Card"));
             //three cost cards
-            threeCostCards.Add(new CardContent(3, 1, 0, "Shopping", EventFunction.SHOPPING,
+            threeCostCards.Add(new CardContent(3, 1, 4f, "Shopping", EventFunction.SHOPPING,
                 "It's that time of the week again, you need some supplies and shopping is the best way to fix that.",
                 "Cards/Shopping_Card"));
-            threeCostCards.Add(new CardContent(3, 5, 0, "Face Masks", EventFunction.FACE_MASKS,
+            threeCostCards.Add(new CardContent(3, 5, -0.2f, "Face Masks", EventFunction.FACE_MASKS,
                 "You found some facemasks at the store!. You decide to give them out to your residents.",
                 "Cards/Face_Mask_Card"));
             //four cost cards
