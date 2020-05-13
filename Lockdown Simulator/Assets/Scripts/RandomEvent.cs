@@ -31,7 +31,27 @@ public class RandomEvent {
         //TODO: seed events with fHappiness and fResidents
         //so that it draws from a valid pool of events with
         //some fuzziness so it isn't too consistent
-        float fExcellentChance = fHappiness;
+        float fTotalChance = 100;
+        float fExcellentChance = fTotalChance - Mathf.Pow(2, (1 / 19f) * fHappiness);
+        fTotalChance -= fExcellentChance;
+        float fOkayChance = fTotalChance / 2;
+        fTotalChance -= fOkayChance;
+        float fGoodChance = fTotalChance / 2;
+        fTotalChance -= fGoodChance;
+
+        float fEventSelector = Random.Range(0f, 100f);
+
+        if (fEventSelector >= fExcellentChance) {
+            DayEndEvent.GetEvent(EventLevel.EXCELLENT);
+        } else if (fEventSelector >= fGoodChance) {
+            DayEndEvent.GetEvent(EventLevel.GOOD);
+        } else if (fEventSelector >= fOkayChance) {
+            DayEndEvent.GetEvent(EventLevel.OKAY);
+        } else {
+            DayEndEvent.GetEvent(EventLevel.BAD);
+        }
+
+
         DayEndEvent e = DayEndEvent.GetEvent((EventLevel)Random.Range(0, System.Enum.GetValues(typeof(EventLevel)).Length));
 
         dialogue = new Dialogue() {
