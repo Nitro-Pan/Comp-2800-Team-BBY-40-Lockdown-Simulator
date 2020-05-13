@@ -79,19 +79,34 @@ public class RandomEvent {
             dayEndEventsBad.Add(new DayEndEvent("Riot", 0, 20,
                 "It's getting bad. People are restless, and they are no longer listening to reason.",
                 "Rooms are being lit on fire, looting and violence has taken over the building."));
+            dayEndEventsBad.Add(new DayEndEvent("Going Viral", -15, 0,
+                "Videos of the terrible conditions in the building have gone viral, and not in a funny way.",
+                "Hopefully this will all blow over quickly... like that 'Friday' girl."));
             //okay events
             dayEndEventsOkay.Add(new DayEndEvent("Rain", 0, 0, 
                 "It's raining today, so your residents aren't as happy as they normally would be."));
             dayEndEventsOkay.Add(new DayEndEvent("Silent Night", 0, 0,
                 "Nothing happened tonight, lucky you. What does this mean for the next night...?"));
+            dayEndEventsOkay.Add(new DayEndEvent("Construction", -5, 0,
+                "There is loud construction going on outside.",
+                "Nobody is happy about it..."));
             //good events
             dayEndEventsGood.Add(new DayEndEvent("Hello, Neighbour!", 0, 0,
                 "One of your residents said hello to you today and it make you happy.", 
                 "Nothing can go wrong now, can it?"));
+            dayEndEventsGood.Add(new DayEndEvent("Pie!", 10, 0,
+                "You found a freshly baked pie at your doorstep!",
+                "You can feel the love that is baked right into it."));
+            dayEndEventsGood.Add(new DayEndEvent("Government Assistance", 10, -5,
+                "The local government hands out a one-time payment for everybody",
+                "This will stimulate the economy. Or something like that."));
             //excellent events
             dayEndEventsExcellent.Add(new DayEndEvent("Shrines", 0, -5,
                 "Your residents have made a shrine in your honor.", 
                 "You don't know how to feel about their devotion, but if they're happy that's less for you to worry about."));
+            dayEndEventsExcellent.Add(new DayEndEvent("Newsworthy!", 15, 0,
+                "You are doing such a good job containing the virus, you made news headlines.",
+                "Everyone is recognizing the great work you have done containing the virus."));
         }
 
         public static DayEndEvent GetEvent(EventLevel type) {
