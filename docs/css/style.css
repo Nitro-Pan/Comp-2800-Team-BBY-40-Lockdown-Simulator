@@ -66,3 +66,43 @@
     height: 400px;
     width: 300px;
 }
+
+/* Easter Egg Animations */
+
+.person{
+    animation: walk 5s infinite, rotate 500ms infinite;
+}
+
+@keyframes walk {
+    from {left: 0vw;}
+    to {left: 75vw;}
+}
+
+@keyframes rotate {
+    from { transform: rotate(-20deg);}
+    to {transform: rotate(20deg);}
+}
+
+#person1{
+    animation-direction: alternate;
+    /*animation-duration: 5s;*/
+}
+
+#person2{
+    animation-direction: alternate-reverse;
+    /*animation-duration: 7s;*/
+}
+
+#person3{
+    animation-direction: alternate;
+    /*animation-duration: 6s;*/
+}
+
+#person4{
+    animation-direction: alternate-reverse;
+    /*animation-duration: 4s;*/
+}
+
+#person5{
+    animation-direction: alternate;
+}
