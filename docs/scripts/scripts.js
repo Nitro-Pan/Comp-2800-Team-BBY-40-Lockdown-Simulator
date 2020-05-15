@@ -23,7 +23,7 @@ function startEgg() {
         dude.src = "images/" + "person" + (i + 1) + ".png";
         dude.style.position = 'absolute';
         dude.style.padding = 0;
-        dude.style.top = (height - dudeHeight - (i * 192)) + "px";
+        dude.style.top = (height - dudeHeight - (i * dudeHeight)) + "px";
         document.body.appendChild(dude);
     }
 }

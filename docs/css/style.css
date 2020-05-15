@@ -74,8 +74,8 @@
 }
 
 @keyframes walk {
-    from {left: 0vw;}
-    to {left: 75vw;}
+    from {left: 5vw;}
+    to {left: 95vw;}
 }
 
 @keyframes rotate {
