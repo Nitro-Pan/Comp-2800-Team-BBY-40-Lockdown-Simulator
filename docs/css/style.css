@@ -22,6 +22,10 @@
     color: #EFF7F6;
 }
 
+body{
+    background-color: #f0f8ff;
+}
+
 .panel-group {
     width: 900px;
 }
@@ -66,6 +70,13 @@
     height: 400px;
     width: 300px;
 }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
 
 /* Easter Egg Animations */
 
