@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "135884795125-7ntfgtco2e9uant5e689lerfqnmthh9n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.team40.LockdownSimulator",
+            "certificate_hash": "161f964214f92d546aceaea7616c21b19329ce83"
+          }
+        },
+        {
           "client_id": "135884795125-0gof1q1sagcbcm5qcrp28a979g1a9393.apps.googleusercontent.com",
           "client_type": 3
         }
