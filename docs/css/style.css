@@ -106,3 +106,16 @@
 #person5{
     animation-direction: alternate;
 }
+
+/*margin for the play button on desktop*/
+.playButton {
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+/*margin for play button on mobile */
+@media only screen and (max-width: 768px){
+    .playButton {
+        margin-left: 10px;
+    }
+}
