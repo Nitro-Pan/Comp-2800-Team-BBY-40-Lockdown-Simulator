@@ -107,6 +107,10 @@
     animation-direction: alternate;
 }
 
+.pbtn {
+    background-color: rgb(201, 48, 44);
+}
+
 /*margin for the play button on desktop*/
 .playButton {
     margin-right: 10px;
