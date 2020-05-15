@@ -84,7 +84,6 @@ public class RandomEvent {
             this.sentences = sentences;
         }
 
-
         private static List<DayEndEvent> dayEndEventsBad = new List<DayEndEvent>();
         private static List<DayEndEvent> dayEndEventsOkay = new List<DayEndEvent>();
         private static List<DayEndEvent> dayEndEventsGood = new List<DayEndEvent>();
@@ -114,17 +113,17 @@ public class RandomEvent {
             dayEndEventsGood.Add(new DayEndEvent("Hello, Neighbour!", 0, 0,
                 "One of your residents said hello to you today and it make you happy.", 
                 "Nothing can go wrong now, can it?"));
-            dayEndEventsGood.Add(new DayEndEvent("Pie!", 10, 0,
+            dayEndEventsGood.Add(new DayEndEvent("Pie!", 5.2f, 0,
                 "You found a freshly baked pie at your doorstep!",
                 "You can feel the love that is baked right into it."));
-            dayEndEventsGood.Add(new DayEndEvent("Government Assistance", 10, -5,
+            dayEndEventsGood.Add(new DayEndEvent("Government Assistance", 7f, -0.2f,
                 "The local government hands out a one-time payment for everybody",
                 "This will stimulate the economy. Or something like that."));
             //excellent events
-            dayEndEventsExcellent.Add(new DayEndEvent("Shrines", 0, -5,
+            dayEndEventsExcellent.Add(new DayEndEvent("Shrines", 0, -1.2f,
                 "Your residents have made a shrine in your honor.", 
                 "You don't know how to feel about their devotion, but if they're happy that's less for you to worry about."));
-            dayEndEventsExcellent.Add(new DayEndEvent("Newsworthy!", 15, 0,
+            dayEndEventsExcellent.Add(new DayEndEvent("Newsworthy!", 10, 0,
                 "You are doing such a good job containing the virus, you made news headlines.",
                 "Everyone is recognizing the great work you have done containing the virus."));
         }
