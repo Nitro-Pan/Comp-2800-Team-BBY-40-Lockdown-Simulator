@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "135884795125",
+    "firebase_url": "https://lockdown-simulator.firebaseio.com",
+    "project_id": "lockdown-simulator",
+    "storage_bucket": "lockdown-simulator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135884795125:android:99b006d811c0c66a9da9bc",
+        "android_client_info": {
+          "package_name": "com.team40.LockdownSimulator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135884795125-7ntfgtco2e9uant5e689lerfqnmthh9n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.team40.LockdownSimulator",
+            "certificate_hash": "161f964214f92d546aceaea7616c21b19329ce83"
+          }
+        },
+        {
+          "client_id": "135884795125-0gof1q1sagcbcm5qcrp28a979g1a9393.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBF0csP944GoE9vnJ70WpPLw0IiY8dOXwc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135884795125-0gof1q1sagcbcm5qcrp28a979g1a9393.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
