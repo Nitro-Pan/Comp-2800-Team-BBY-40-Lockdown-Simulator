@@ -9,10 +9,10 @@ public class FirebaseScript : MonoBehaviour {
     Firebase.FirebaseApp app;
     bool bAppReady;
 
-    void Start() {
+    void Awake() {
         DontDestroyOnLoad(this);
 
-        FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://YOUR-FIREBASE-APP.firebaseio.com/");
+        FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://lockdown-simulator.firebaseio.com/");
 
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
             var dependencyStatus = task.Result;
