@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Lockdown Simulator</title>
+    <link rel="icon" type="image/png" href="images/Lockdown_Logo.png" />
 
     <!----------------------------------------------->
     <!--  Meta tag for rendering on mobile devices -->
@@ -13,9 +14,9 @@
     <!----------------------------------------------->
     <!-- CSS: Bootstrap, Firebase, other API -->
     <!----------------------------------------------->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <!------------------------>
     <!-- Your own CSS files -->
@@ -29,15 +30,11 @@
     <!--  HTML Section -->
     <!----------------------->
 
-    <!---- Nav Bar  -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-
-        <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
-            <div class="navbar-nav">
-                <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="resources.html" class="nav-item nav-link active">Resources</a>
-                <a href="download.html" class="nav-item nav-link">Download</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
+    <!-- Nav -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html"><img src="images/logo2.png" class="img-responsive logo"></a>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="index.html">HOME</a></li>
@@ -51,9 +48,9 @@
 
 
     <!---- Content -->
-    <div class="container p-3 mt-0 border bg-blue fill">
-        <h1 class="display-4">Here you can find more detailed information on our game.</h1>
-
+    <div class="container">
+        <h1 class="display-4">Detailed information about Lockdown Simulator.</h1>
+        </br>
         <h1 class="display-5">How to Play</h1>
         <p>
             You play the role of an apartment manager, and you are trying to eradicate COVID-19 from your building.
@@ -61,6 +58,7 @@
             points <b>(AP)</b>, which you can spend
             </br>on tasks to help your residents deal with the infection on each day.
         </p>
+
         <h3>Action Points (AP)</h3>
         <p>
             Each day you will be given X action points, of which you can store up to a max of 20.</br>
@@ -69,6 +67,7 @@
             affect your residents happiness rating
             and the total number of infected residents.</br>
         </p>
+
         <h3>Action cards (AC)</h3>
         <p>
             Each day will you be given 4 AC's to choose from. At the start of the game, these AC's will be low cost and
@@ -77,178 +76,116 @@
             As you progress through days in the game, higher cost AC's will start appearing. These AC's will have
             greater effects and consequences.
         </p>
+
         <h3>Residents and their Happiness</h3>
         <p>
-            You will begin with a total of 100 residents in your building, 1 of whom is infected with COVID-19. The
+            You will begin with a total of <b>100 residents</b> in your building, <b>1</b> of whom is infected with
+            COVID-19. The
             residents have a happiness score that will increase or decrease depending on your actions.
             </br>This happiness rating will determine whether good or bad random events happen to you.
         </p>
+
         <h3>Random Events</h3>
         <p>
-            There are two types of random events that can occur inbetween days, World Events and Local Events. </br>
-            At the end of each day, one Local Event will occur.</br>
+            There are two types of random events that can occur inbetween days, <b>World Events</b> and <b>Local
+                Events</b>. </br>
+            At the end of each day, one <strong>Local Event</strong> will occur.</br>
             These events can range from a simple gift of <b>AP</b> from residents, to residents revolting and
             throwing you out the building. The odds of these events occuring are directly linked to the happiness of
             your residents.</br>
-            World Events take place every week, and you have no control over what happens.</br>
+            <strong>World Events</strong> take place every week, and you have no control over what happens.</br>
             These events range from government issued regulations, to government stimulus packages.
         </p>
+        </br>
 
+        <h3 class="display-5">List of all possible AC's and their costs:</h3>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Item 1</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.</div>
+                </div>
+            </div>
 
-        
-        <h1 class="display-5">List of all possible AC's and their costs:</h1>
-        <!-- Collection of AC's-->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="accordion mt-5" id="accordionExample">
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h2 class="clearfix mb-0">
-                                    <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne"
-                                        aria-expanded="false" aria-controls="collapseOne">Item #1</a>
-                                </h2>
-                            </div>
-                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-                                data-parent="#accordionExample" style="">
-                                <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu
-                                    sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel,
-                                    semper malesuada ante. Vestibulum id metus ac nisl bibendum scelerisque non non
-                                    purus. Suspendisse varius nibh non aliquet sagittis. In tincidunt orci sit amet
-                                    elementum vestibulum.</div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingTwo">
-                                <h2 class="mb-0">
-                                    <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                                        aria-expanded="false" aria-controls="collapseTwo">Item #2</a>
-                                </h2>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                data-parent="#accordionExample" style="">
-                                <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                    accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
-                                    skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-                                    moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                                    shoreditch et.</div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingThree">
-                                <h2 class="mb-0">
-                                    <a class="btn btn-link collapsed" data-toggle="collapse"
-                                        data-target="#collapseThree" aria-expanded="false"
-                                        aria-controls="collapseThree">Item #3</a>
-                                </h2>
-                            </div>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                data-parent="#accordionExample">
-                                <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu
-                                    sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel,
-                                    semper malesuada ante. Vestibulum id metus ac nisl bibendum scelerisque non non
-                                    purus. Suspendisse varius nibh non aliquet sagittis. In tincidunt orci sit amet
-                                    elementum vestibulum.</div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingFour">
-                                <h2 class="mb-0">
-                                    <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
-                                        aria-expanded="false" aria-controls="collapseFour">Item
-                                        #4</a>
-                                </h2>
-                            </div>
-                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                                data-parent="#accordionExample">
-                                <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                    accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
-                                    skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-                                    moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                                    shoreditch et.</div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Item 2</a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.</div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Item 3</a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.</div>
                 </div>
             </div>
         </div>
 
-        <h1 class="display-5">List of all possible events:</h1>
-        <!-- Collection of Events-->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="accordion mt-5" id="accordionExample">
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h2 class="clearfix mb-0">
-                                    <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne"
-                                        aria-expanded="false" aria-controls="collapseOne">Item #1</a>
-                                </h2>
-                            </div>
-                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-                                data-parent="#accordionExample" style="">
-                                <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu
-                                    sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel,
-                                    semper malesuada ante. Vestibulum id metus ac nisl bibendum scelerisque non non
-                                    purus. Suspendisse varius nibh non aliquet sagittis. In tincidunt orci sit amet
-                                    elementum vestibulum.</div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingTwo">
-                                <h2 class="mb-0">
-                                    <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                                        aria-expanded="false" aria-controls="collapseTwo">Item #2</a>
-                                </h2>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                data-parent="#accordionExample" style="">
-                                <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                    accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
-                                    skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-                                    moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                                    shoreditch et.</div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingThree">
-                                <h2 class="mb-0">
-                                    <a class="btn btn-link collapsed" data-toggle="collapse"
-                                        data-target="#collapseThree" aria-expanded="false"
-                                        aria-controls="collapseThree">Item #3</a>
-                                </h2>
-                            </div>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                data-parent="#accordionExample">
-                                <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu
-                                    sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel,
-                                    semper malesuada ante. Vestibulum id metus ac nisl bibendum scelerisque non non
-                                    purus. Suspendisse varius nibh non aliquet sagittis. In tincidunt orci sit amet
-                                    elementum vestibulum.</div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="headingFour">
-                                <h2 class="mb-0">
-                                    <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
-                                        aria-expanded="false" aria-controls="collapseFour">Item
-                                        #4</a>
-                                </h2>
-                            </div>
-                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                                data-parent="#accordionExample">
-                                <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                    accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
-                                    skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-                                    moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                                    shoreditch et.</div>
-                            </div>
-                        </div>
-                    </div>
+        <h3 class="display-5">List of all possible events:</h3>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Item 1</a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.</div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Item 2</a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.</div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Item 3</a>
+                    </h4>
+                </div>
+                <div id="collapse6" class="panel-collapse collapse">
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.</div>
                 </div>
             </div>
         </div>
+
 
 
     </div>
@@ -257,13 +194,13 @@
     <!----------------------------------------------->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
+        </script>
 
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
