@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d264c88cbf44c424ea7044346ee4ba0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sSceneToLoad: MainMenu
 --- !u!1 &1654179234512307174
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,7 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 1022.2
+  m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1500, y: 600}
   m_ScreenMatchMode: 0
