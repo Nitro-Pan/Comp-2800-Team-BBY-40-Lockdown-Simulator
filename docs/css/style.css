@@ -14,9 +14,12 @@
     margin-bottom: 10px;
 }
 
-.aboutTitle {
-    text-align: center;
-    font-size: 20pt;
+body{
+    background-color: #f0f8ff;
+}
+
+.panel-group {
+    width: 900px;
 }
 
 .info {
@@ -31,4 +34,68 @@
 .apt {
     height: 400px;
     width: 300px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+/* Easter Egg Animations */
+
+.person{
+    animation: walk 5s infinite, rotate 500ms infinite;
+}
+
+@keyframes walk {
+    from {left: 5vw;}
+    to {left: 95vw;}
+}
+
+@keyframes rotate {
+    from { transform: rotate(-20deg);}
+    to {transform: rotate(20deg);}
+}
+
+#person1{
+    animation-direction: alternate;
+    /*animation-duration: 5s;*/
+}
+
+#person2{
+    animation-direction: alternate-reverse;
+    /*animation-duration: 7s;*/
+}
+
+#person3{
+    animation-direction: alternate;
+    /*animation-duration: 6s;*/
+}
+
+#person4{
+    animation-direction: alternate-reverse;
+    /*animation-duration: 4s;*/
+}
+
+#person5{
+    animation-direction: alternate;
+}
+
+.pbtn {
+    background-color: rgb(201, 48, 44);
+}
+
+/*margin for the play button on desktop*/
+.playButton {
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+/*margin for play button on mobile */
+@media only screen and (max-width: 768px){
+    .playButton {
+        margin-left: 10px;
+    }
 }

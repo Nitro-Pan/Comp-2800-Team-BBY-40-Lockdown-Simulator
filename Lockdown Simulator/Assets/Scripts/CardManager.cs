@@ -25,7 +25,7 @@ public class CardManager : MonoBehaviour {
         dm = goDialogueManager.GetComponent<DialogueManager>();
         nActionPointTotal = nActionPoints;
         textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
-        if (nDaysToIncreasePoints == 0) nDaysToIncreasePoints = 1;
+        if (nDaysToIncreasePoints <= 0) nDaysToIncreasePoints = 1;
     }
 
     // Update is called once per frame
@@ -74,7 +74,7 @@ public class CardManager : MonoBehaviour {
             nActionPoints -= c.nCardCost;
             RandomEvent.listLockedEvents.Add(c.func);
             rm.fHappiness = Mathf.Clamp(rm.fHappiness + c.nHappinessGain, 0f, 100f);
-            rm.fInfectionRate = Mathf.Clamp(rm.fInfectionRate + c.fInfectionGain, 0f, 200f);
+            rm.fInfectionRate = Mathf.Clamp(rm.fInfectionRate + c.fInfectionGain, 0f, 100f);
             rm.UpdateText();
             textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
         }

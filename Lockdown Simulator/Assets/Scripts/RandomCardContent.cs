@@ -22,22 +22,27 @@ public class RandomCardContent {
         sImagePath = card.sImagePath;
         func = card.func;
     }
-    private RandomCardContent(float fHappiness, float fResident) {
-        //TODO: use a formula to determine what card to draw
-        CardContent card = CardContent.GetCard(Random.Range(1, 11));
+    private RandomCardContent(float fHappiness, float fResident, int nDay) {
+        //max cost increases every 4 days, starting at 3, with a min of 2
+        //and a max of 11
+        int maxCost = Mathf.Clamp(Mathf.FloorToInt((1 / 4f) * nDay + 3), 2, 11);
+
+        //get a random card between 1 and the maxCost, exclusive
+        CardContent card = CardContent.GetCard(Random.Range(1, maxCost));
         nCardCost = card.nCardCost;
         nHappinessGain = card.nHappinessGain;
         fInfectionGain = card.fInfectionGain;
         sCardName = card.sCardName;
         sCardContent = card.sCardContent;
         sImagePath = card.sImagePath;
+        func = card.func;
     }
 
     public static RandomCardContent GenerateRandomCard() {
         return new RandomCardContent();
     }
-    public static RandomCardContent GenerateRandomSeededCard(float fHappiness, float fResident) {
-        return new RandomCardContent(fHappiness, fResident);
+    public static RandomCardContent GenerateRandomSeededCard(float fHappiness, float fResident, int nDay) {
+        return new RandomCardContent(fHappiness, fResident, nDay);
     }
 
     private class CardContent {
@@ -80,10 +85,10 @@ public class RandomCardContent {
                 "You wave and say hello to a resident. They like this and will probably wave back in the future.",
                 "Cards/Wave_Card"));
             //three cost cards
-            threeCostCards.Add(new CardContent(3, 1, 0, "Shopping", EventFunction.SHOPPING,
+            threeCostCards.Add(new CardContent(3, 1, 4f, "Shopping", EventFunction.SHOPPING,
                 "It's that time of the week again, you need some supplies and shopping is the best way to fix that.",
                 "Cards/Shopping_Card"));
-            threeCostCards.Add(new CardContent(3, 5, 0, "Face Masks", EventFunction.FACE_MASKS,
+            threeCostCards.Add(new CardContent(3, 5, -0.2f, "Face Masks", EventFunction.FACE_MASKS,
                 "You found some facemasks at the store!. You decide to give them out to your residents.",
                 "Cards/Face_Mask_Card"));
             //four cost cards
