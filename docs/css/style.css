@@ -84,6 +84,11 @@ body{
     margin-right: auto;
 }
 
+#handwash {
+    width: 1200px;
+    height: 700px;
+}
+
 /* Easter Egg Animations */
 .person{
     animation: walk 5s infinite, rotate 500ms infinite;
