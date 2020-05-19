@@ -8,6 +8,7 @@ public class ResidentManager : MonoBehaviour {
 
     public float fHappiness;
     private float fTotalHappiness;
+    private float fOverallHappiness;
     public float fInfectionRate;
     private float fTotalInfectionRate;
     [HideInInspector]
@@ -19,6 +20,9 @@ public class ResidentManager : MonoBehaviour {
 
     public GameObject goDialogueManager;
     private DialogueManager dm;
+
+    //leaderboard
+    public LeaderboardManager lm;
 
     void Start() {
         dm = goDialogueManager.GetComponent<DialogueManager>();
@@ -46,6 +50,7 @@ public class ResidentManager : MonoBehaviour {
             return;
         }
         nDay += 1;
+        fOverallHappiness += fHappiness;
         textDay.text = nDay.ToString();
         textHappiness.text = "Happiness: " + fHappiness + " / " + fTotalHappiness;
         textResident.text = "Infected: " + fInfectionRate + "%";
@@ -65,6 +70,7 @@ public class ResidentManager : MonoBehaviour {
         CanvasGroup ui = GameObject.FindGameObjectWithTag("Game UI").GetComponent<CanvasGroup>();
         StartCoroutine(FadeUI(ui, '-'));
         CreateUI("Screens/Game Win");
+        lm.SaveScore((fOverallHappiness / nDay) * ((1 / nDay) * 5));
     }
 
     IEnumerator FadeUI(CanvasGroup ui, char op) {
