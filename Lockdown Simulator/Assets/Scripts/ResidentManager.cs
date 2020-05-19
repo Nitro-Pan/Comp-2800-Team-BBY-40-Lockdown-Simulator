@@ -42,6 +42,7 @@ public class ResidentManager : MonoBehaviour {
         //if this is above the top, there is no chance of a random event chaning the outcome
         //if it's below, you might get screwed over last minute. Strategy.
         dm.StartDialogue(re.dialogue);
+        fOverallHappiness += fHappiness;
         if (fInfectionRate >= fTotalInfectionRate) {
             EndGame();
             return;
@@ -50,7 +51,6 @@ public class ResidentManager : MonoBehaviour {
             return;
         }
         nDay += 1;
-        fOverallHappiness += fHappiness;
         textDay.text = nDay.ToString();
         textHappiness.text = "Happiness: " + fHappiness + " / " + fTotalHappiness;
         textResident.text = "Infected: " + fInfectionRate + "%";
