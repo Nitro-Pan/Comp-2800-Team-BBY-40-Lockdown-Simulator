@@ -134,3 +134,19 @@ body{
         margin-left: 10px;
     }
 }
+
+.avatar {
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+}
+
+.name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+.bio {
+    margin-left:45px;
+}
