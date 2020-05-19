@@ -59,6 +59,8 @@ public class RegistrationButton : MonoBehaviour {
             Debug.Log($"Successfully registered user {registerTask.Result.Email} ");
             OnUserRegistered.Invoke(registerTask.Result);
         }
+
+        _registrationCoroutine = null;
     }
 
     [System.Serializable]
