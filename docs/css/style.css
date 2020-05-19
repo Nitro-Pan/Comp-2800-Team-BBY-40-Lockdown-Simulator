@@ -75,11 +75,16 @@ body{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 30%;
   }
 
-/* Easter Egg Animations */
+.center1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+/* Easter Egg Animations */
 .person{
     animation: walk 5s infinite, rotate 500ms infinite;
 }
