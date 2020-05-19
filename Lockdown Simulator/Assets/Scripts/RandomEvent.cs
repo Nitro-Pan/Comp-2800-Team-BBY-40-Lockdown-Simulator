@@ -17,7 +17,7 @@ public class RandomEvent {
     }
 
     private RandomEvent() {
-        DayEndEvent e = DayEndEvent.GetEvent((EventLevel) Random.Range(0, System.Enum.GetValues(typeof(EventLevel)).Length));
+        DayEndEvent e = DayEndEvent.GetEvent((EventLevel) Random.Range(0, System.Enum.GetValues(typeof(EventLevel)).Length), 100);
 
         dialogue = new Dialogue() {
             sName = e.sName,
@@ -41,18 +41,19 @@ public class RandomEvent {
 
         float fEventSelector = Random.Range(0f, 100f);
 
+        DayEndEvent e;
+
         if (fEventSelector >= fExcellentChance) {
-            DayEndEvent.GetEvent(EventLevel.EXCELLENT);
+            e = DayEndEvent.GetEvent(EventLevel.EXCELLENT, fHappiness);
         } else if (fEventSelector >= fGoodChance) {
-            DayEndEvent.GetEvent(EventLevel.GOOD);
+            e = DayEndEvent.GetEvent(EventLevel.GOOD, fHappiness);
         } else if (fEventSelector >= fOkayChance) {
-            DayEndEvent.GetEvent(EventLevel.OKAY);
+            e = DayEndEvent.GetEvent(EventLevel.OKAY, fHappiness);
+        } else if (fHappiness <= 20f) {
+            e = DayEndEvent.GetEvent(EventLevel.BAD, fHappiness);
         } else {
-            DayEndEvent.GetEvent(EventLevel.BAD);
+            e = DayEndEvent.GetEvent(EventLevel.OKAY, fHappiness);
         }
-
-
-        DayEndEvent e = DayEndEvent.GetEvent((EventLevel)Random.Range(0, System.Enum.GetValues(typeof(EventLevel)).Length));
 
         dialogue = new Dialogue() {
             sName = e.sName,
@@ -102,7 +103,7 @@ public class RandomEvent {
                 "Videos of the terrible conditions in the building have gone viral, and not in a funny way.",
                 "Hopefully this will all blow over quickly... like that 'Friday' girl."));
             //okay events
-            dayEndEventsOkay.Add(new DayEndEvent("Rain", 0, 0, 
+            dayEndEventsOkay.Add(new DayEndEvent("Rain", -0.7f, 0, 
                 "It's raining today, so your residents aren't as happy as they normally would be."));
             dayEndEventsOkay.Add(new DayEndEvent("Silent Night", 0, 0,
                 "Nothing happened tonight, lucky you. What does this mean for the next night...?"));
@@ -113,22 +114,22 @@ public class RandomEvent {
             dayEndEventsGood.Add(new DayEndEvent("Hello, Neighbour!", 0, 0,
                 "One of your residents said hello to you today and it make you happy.", 
                 "Nothing can go wrong now, can it?"));
-            dayEndEventsGood.Add(new DayEndEvent("Pie!", 5.2f, 0,
+            dayEndEventsGood.Add(new DayEndEvent("Pie!", 0.2f, 0,
                 "You found a freshly baked pie at your doorstep!",
                 "You can feel the love that is baked right into it."));
-            dayEndEventsGood.Add(new DayEndEvent("Government Assistance", 7f, -0.2f,
+            dayEndEventsGood.Add(new DayEndEvent("Government Assistance", 1f, -0.2f,
                 "The local government hands out a one-time payment for everybody",
                 "This will stimulate the economy. Or something like that."));
             //excellent events
             dayEndEventsExcellent.Add(new DayEndEvent("Shrines", 0, -1.2f,
                 "Your residents have made a shrine in your honor.", 
                 "You don't know how to feel about their devotion, but if they're happy that's less for you to worry about."));
-            dayEndEventsExcellent.Add(new DayEndEvent("Newsworthy!", 10, 0,
+            dayEndEventsExcellent.Add(new DayEndEvent("Newsworthy!", 2, 0,
                 "You are doing such a good job containing the virus, you made news headlines.",
                 "Everyone is recognizing the great work you have done containing the virus."));
         }
 
-        public static DayEndEvent GetEvent(EventLevel type) {
+        public static DayEndEvent GetEvent(EventLevel type, float fHappiness) {
             //if anything has locked an event to happen, randomly select
             if (listLockedEvents.Count > 0) {
                 int index = Random.Range(0, listLockedEvents.Count);
@@ -146,7 +147,8 @@ public class RandomEvent {
             }
             switch (type) {
                 case EventLevel.BAD:
-                    return dayEndEventsBad[Random.Range(0, dayEndEventsBad.Count)];
+                    //make sure you can only be murdered if your residents are very unhappy
+                    return dayEndEventsBad[Random.Range(0 + (fHappiness > 5f ? 1 : 0), dayEndEventsBad.Count)];
                 case EventLevel.OKAY:
                     return dayEndEventsOkay[Random.Range(0, dayEndEventsOkay.Count)];
                 case EventLevel.GOOD:
