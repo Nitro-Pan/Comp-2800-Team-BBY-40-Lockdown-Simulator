@@ -20,7 +20,7 @@ function printUsers() {
         snapshot.forEach(function (childSnapshot) {
             let parent = document.getElementById("end").parentNode;
             let childData = childSnapshot.val();
-            let score = childData["name"] + " ----- " + childData["score"];
+            let score = childData["name"] + " ------- " + childData["score"];
             let node = document.createTextNode(score);
             let h4 = document.createElement("h4");
             h4.append(node);
