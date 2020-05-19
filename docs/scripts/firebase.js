@@ -22,6 +22,7 @@ function grabUserData() {
                 let key = childSnapshot.key;
                 //console.log(key); //userid
                 let data = childSnapshot.val();
+                console.log(data);
                 //console.log(data); //user score and username
                 unsortedUsers.push(data);
             })
@@ -37,6 +38,7 @@ function grabUserData() {
 
 grabUserData();
 console.log(unsortedUsers);
+console.log(unsortedUsers[0]);
 
 
 

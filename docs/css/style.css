@@ -1,12 +1,9 @@
-.bg-blue {
-    background-color: rgb(169, 214, 240);
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+/* Apply DM Mono Font to all */
+* {
+    font-family: 'DM Mono', monospace;
 }
 
-<<<<<<< HEAD
-.fill {
-    min-height: 100vh;
-    height: 100%;
-=======
 /* Color of nav bar */
 .navbar-custom {
     background-color: grey;
@@ -31,33 +28,44 @@ body{
 
 .panel-group {
     width: 900px;
->>>>>>> fc47da21d05e8b0f3623beba6254a90852ac2467
 }
 
-.avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+.panel {
+    width: 700px;
 }
 
-.aboutTitle {
-    text-align: center;
-    font-size: 20pt;
+.navbar-brand {
+    margin: 0px;
+    padding: 0px;
 }
 
-.info {
-    padding-left: 45px;
+.logo {
+    height: 50px;
+    padding: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-.name {
-    text-align: center;
-    font-weight: bold;
+.tate {
+    height: 200px;
+    width: 200px;
 }
 
-footer {
-    background-color: rgb(52, 58, 64);
+.jacob {
+    height: 200px;
+    width: 200px;
 }
+
+.sun {
+    height: 200px;
+    width: 200px;
+}
+
+.sirinam {
+    height: 200px;
+    width: 200px;
+}
+
 .apt {
     height: 400px;
     width: 300px;
