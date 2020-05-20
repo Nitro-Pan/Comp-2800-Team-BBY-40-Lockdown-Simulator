@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
     <!------------------------>
     <!-- Your own CSS files -->
@@ -43,12 +47,12 @@
                 <li><a href="leaderboard.html">LEADERBOARD</a></li>
                 <li><a href="about.html">ABOUT US</a></li>
                 <li><a href="profile.html">PROFILE</a></li>
-                <li><button class="btn btn-danger navbar-btn playButton">DOWNLOAD NOW</button></li>
+                <li><button id='loginbutton' class="btn btn-danger navbar-btn playButton" onclick="window.location = 'login.html';">LOG IN / SIGN UP</button></li>
             </ul>
         </div>
     </nav>
 
-    <img class="center" id="handwash" src="images/handwash.png">
+    <img class="center img-responsive" id="handwash" src="images/handwash.png">
 
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
@@ -63,33 +67,9 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
-    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <script src="scripts/firebase_api.js"> </script>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyA5KXbGRt_3OjIo8xtPLbFF8ywoTCffuvU",
-            authDomain: "lockdown-simulator.firebaseapp.com",
-            databaseURL: "https://lockdown-simulator.firebaseio.com",
-            projectId: "lockdown-simulator",
-            storageBucket: "lockdown-simulator.appspot.com",
-            messagingSenderId: "135884795125",
-            appId: "1:135884795125:web:1fdf9ab3ecb48a359da9bc"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
-
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+    <script src="scripts/firebase.js"> </script>
+    <script src="scripts/firebase_login.js"> </script>
 
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
