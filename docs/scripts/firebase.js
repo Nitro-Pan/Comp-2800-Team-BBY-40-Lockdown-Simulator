@@ -29,4 +29,31 @@ function printUsers() {
     });
 }
 
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User logged in already or has just logged in.
+      //Change log in button text to log out
+      let btn = document.getElementById('loginbutton');
+      btn.innerHTML = "LOG OUT";
+      //btn.onclick = firebase.auth().signOut().then(() => { refresh });
+      //Fill out profile page
+      db.ref(user.uid).once('value').then(function(snapshot) {
+        let email = document.createTextNode(snapshot.val().name);
+        let h1 = document.createElement("h1");
+        h1.append(email);
+        document.getElementById('profile').append(h1);
+        let score = document.createTextNode("Score: " + snapshot.val().score);
+        let h2 = document.createElement("h2");
+        h2.append(score);
+        document.getElementById('profile').append(h2);
+      });
+    } else {
+      // User not logged in or has just logged out.
+      let btn = document.getElementById('loginbutton');
+      //btn.onclick = location.href = 'login.html';
+
+    }
+  });
+
+
 printUsers();
