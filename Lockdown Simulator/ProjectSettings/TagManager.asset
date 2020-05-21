@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Card
   - Game UI
+  - Days Lasted
+  - Average Happiness
   layers:
   - Default
   - TransparentFX
