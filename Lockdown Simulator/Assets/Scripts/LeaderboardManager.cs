@@ -22,10 +22,18 @@ public class LeaderboardManager : MonoBehaviour {
     }
 
     private IEnumerator SaveAsync(UserData user) {
-        var saveTask = _database.GetReference(PLAYER_KEY).SetRawJsonValueAsync(JsonUtility.ToJson(user));
-        Debug.Log("Saving score...");
-        yield return new WaitUntil(() => saveTask.IsCompleted);
-        Debug.Log($"Saved score {user.score} to user {PLAYER_KEY}.");
+        var curVal = _database.GetReference(PLAYER_KEY).GetValueAsync();
+        yield return new WaitUntil(() => curVal.IsCompleted);
+        if (!curVal.IsFaulted) {
+            DataSnapshot snap = curVal.Result;
+            UserData storedData = JsonUtility.FromJson<UserData>(snap.GetRawJsonValue());
+            if (storedData.score < user.score) {
+                var saveTask = _database.GetReference(PLAYER_KEY).SetRawJsonValueAsync(JsonUtility.ToJson(user));
+                Debug.Log("Saving score...");
+                yield return new WaitUntil(() => saveTask.IsCompleted);
+                Debug.Log($"Saved score {user.score} to user {PLAYER_KEY}.");
+            }
+        }
         _saveScore = null;
     }
 
