@@ -24,7 +24,7 @@ public class CardManager : MonoBehaviour {
     void Start() {
         dm = goDialogueManager.GetComponent<DialogueManager>();
         nActionPointTotal = nActionPoints;
-        textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
+        textActionPoints.text = nActionPoints + " / " + nActionPointTotal;
         if (nDaysToIncreasePoints <= 0) nDaysToIncreasePoints = 1;
     }
 
@@ -73,17 +73,17 @@ public class CardManager : MonoBehaviour {
         if (bPointsUsed = nActionPoints - c.nCardCost >= 0) {
             nActionPoints -= c.nCardCost;
             RandomEvent.listLockedEvents.Add(c.func);
-            rm.fHappiness = Mathf.Clamp(rm.fHappiness + c.nHappinessGain, 0f, 100f);
+            rm.fHappiness = Mathf.Clamp(rm.fHappiness + c.fHappinessGain, 0f, 100f);
             rm.fInfectionRate = Mathf.Clamp(rm.fInfectionRate + c.fInfectionGain, 0f, 100f);
             rm.UpdateText();
-            textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
+            textActionPoints.text = nActionPoints + " / " + nActionPointTotal;
         }
         return bPointsUsed;
     }
 
     private void FillActionPoints() {
         nActionPoints = nActionPointTotal;
-        textActionPoints.text = "AP: " + nActionPoints + " / " + nActionPointTotal;
+        textActionPoints.text = nActionPoints + " / " + nActionPointTotal;
     }
 
     public void ProcessDay() {
