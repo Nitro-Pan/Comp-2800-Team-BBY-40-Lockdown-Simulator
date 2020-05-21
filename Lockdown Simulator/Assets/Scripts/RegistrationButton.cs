@@ -12,6 +12,8 @@ public class RegistrationButton : MonoBehaviour {
     public UserRegisteredEvent OnUserRegistered = new UserRegisteredEvent();
     public UserRegistrationFailedEvent OnUserRegistrationFailed = new UserRegistrationFailedEvent();
 
+    public DialogueManager dm;
+
     private void Reset() {
         _registrationFlow = FindObjectOfType<RegistrationUI>();
         _registrationButton = FindObjectOfType<Button>();
@@ -37,7 +39,7 @@ public class RegistrationButton : MonoBehaviour {
         UpdateInteractible();
     }
 
-    private void HandleRegistrationEventClicked() {
+    public void HandleRegistrationEventClicked() {
         if (_registrationCoroutine == null) {
             _registrationCoroutine = StartCoroutine(RegisterUser(_registrationFlow.Email, _registrationFlow.Password));
             UpdateInteractible();
@@ -54,6 +56,32 @@ public class RegistrationButton : MonoBehaviour {
 
         if (registerTask.Exception != null) {
             Debug.LogWarning($"Failed to register task with {registerTask.Exception}");
+            switch (_registrationFlow.CurrentState) {
+                case RegistrationUI.State.EnterEmail:
+                    dm.StartDialogue(new Dialogue() {
+                        sName = "Enter Email",
+                        sentences = new string[] { "Enter your email" }
+                    });
+                    break;
+                case RegistrationUI.State.EnterPassword:
+                    dm.StartDialogue(new Dialogue() {
+                        sName = "Enter Password",
+                        sentences = new string[] { "Enter your password" }
+                    });
+                    break;
+                case RegistrationUI.State.PasswordsDontMatch:
+                    dm.StartDialogue(new Dialogue() {
+                        sName = "Unmatched Passwords",
+                        sentences = new string[] { "Make sure your passwords match" }
+                    });
+                    break;
+                default:
+                    dm.StartDialogue(new Dialogue() {
+                        sName = "Error",
+                        sentences = new string[] { $"Failed to register task with {registerTask.Exception}" }
+                    });
+                    break;
+            }
             OnUserRegistrationFailed.Invoke(registerTask.Exception);
         } else {
             Debug.Log($"Successfully registered user {registerTask.Result.Email} ");
@@ -70,5 +98,34 @@ public class RegistrationButton : MonoBehaviour {
 
     public void SuccessfulUserRegistration(FirebaseUser user) {
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+    }
+
+    public void FailedUserRegistration(System.AggregateException e) {
+        switch (_registrationFlow.CurrentState) {
+            case RegistrationUI.State.EnterEmail:
+                dm.StartDialogue(new Dialogue() {
+                    sName = "Enter Email",
+                    sentences = new string[] { "Enter your email" }
+                });
+                break;
+            case RegistrationUI.State.EnterPassword:
+                dm.StartDialogue(new Dialogue() {
+                    sName = "Enter Password",
+                    sentences = new string[] { "Enter your password" }
+                });
+                break;
+            case RegistrationUI.State.PasswordsDontMatch:
+                dm.StartDialogue(new Dialogue() {
+                    sName = "Unmatched Passwords",
+                    sentences = new string[] { "Make sure your passwords match" }
+                });
+                break;
+            default:
+                dm.StartDialogue(new Dialogue() {
+                    sName = "Error",
+                    sentences = new string[] { $"Failed to register task with {e}" }
+                });
+                break;
+        }
     }
 }

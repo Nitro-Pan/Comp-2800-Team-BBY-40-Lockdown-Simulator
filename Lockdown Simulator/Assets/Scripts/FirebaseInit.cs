@@ -9,6 +9,7 @@ using UnityEngine.Events;
 
 public class FirebaseInit : MonoBehaviour {
     private static FirebaseInit _instance;
+    public DialogueManager dm;
 
     public UnityEvent OnFirebaseInitialized = new UnityEvent();
 
@@ -23,6 +24,10 @@ public class FirebaseInit : MonoBehaviour {
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
             if (task.Exception != null) {
                 Debug.LogError($"Failed to initialize Firebase with error {task.Exception}");
+                dm.StartDialogue(new Dialogue() {
+                    sName = "Error",
+                    sentences = new string[] { $"Failed to initialize Firebase with error {task.Exception}" }
+                });
                 return;
             }
 

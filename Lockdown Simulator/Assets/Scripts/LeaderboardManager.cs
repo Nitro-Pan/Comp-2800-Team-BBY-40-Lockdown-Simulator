@@ -5,12 +5,13 @@ using Firebase.Database;
 using Firebase.Auth;
 
 public class LeaderboardManager : MonoBehaviour {
-    private readonly string PLAYER_KEY = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+    private string PLAYER_KEY;
     private Coroutine _saveScore;
     private FirebaseDatabase _database;
 
     void Start() {
         _database = FirebaseDatabase.DefaultInstance;
+        PLAYER_KEY = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
     }
 
     public void SaveScore(float score) {
