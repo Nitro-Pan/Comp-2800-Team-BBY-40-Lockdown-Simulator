@@ -75,7 +75,6 @@ body{
     display: block;
     margin-left: auto;
     margin-right: auto;
-<<<<<<< HEAD
     width: 30%;
   }
 
@@ -91,13 +90,6 @@ body{
 }
 
 /* Easter Egg Animations */
-=======
-    width: 50%;
-  }
-
-/* Easter Egg Animations */
-
->>>>>>> 7f7e5c301df029501076ba02d36425d201a932e7
 .person{
     animation: walk 5s infinite, rotate 500ms infinite;
 }
@@ -136,7 +128,6 @@ body{
     animation-direction: alternate;
 }
 
-<<<<<<< HEAD
 #leaderboard{
     text-align: center;
 }
@@ -150,34 +141,26 @@ body{
     display: block;
   }
 
-=======
->>>>>>> 7f7e5c301df029501076ba02d36425d201a932e7
 .pbtn {
     background-color: rgb(201, 48, 44);
 }
 
-<<<<<<< HEAD
 .bio {
     margin-left: 45px;
  }
 
-=======
->>>>>>> 7f7e5c301df029501076ba02d36425d201a932e7
 /*margin for the play button on desktop*/
 .playButton {
     margin-right: 10px;
     margin-left: 5px;
 }
 
-<<<<<<< HEAD
 /*media query for mobile */
 @media only screen and (max-width: 768px){
     /*margin for the download button on mobile */
     .playButton {
         margin-left: 10px;
     }
-<<<<<<< HEAD
-=======
 
     .bio {
         text-align: center;
@@ -224,7 +207,6 @@ body{
 
   
 
->>>>>>> Website
 }
 
 .avatar {
@@ -250,11 +232,9 @@ body{
     padding: 6px; 
     text-align: left; 
 }
-=======
 /*margin for play button on mobile */
 @media only screen and (max-width: 768px){
     .playButton {
         margin-left: 10px;
     }
 }
->>>>>>> 7f7e5c301df029501076ba02d36425d201a932e7
