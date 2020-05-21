@@ -128,6 +128,19 @@ body{
     animation-direction: alternate;
 }
 
+#leaderboard{
+    text-align: center;
+}
+
+#profile{
+    text-align: center;
+}
+
+.vertical-center {
+    text-align: center;
+    display: block;
+  }
+
 .pbtn {
     background-color: rgb(201, 48, 44);
 }
