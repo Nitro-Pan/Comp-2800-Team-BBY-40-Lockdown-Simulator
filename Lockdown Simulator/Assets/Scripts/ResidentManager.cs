@@ -1,13 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class ResidentManager : MonoBehaviour {
 
     public float fHappiness;
     private float fTotalHappiness;
+    private float fOverallHappiness;
     public float fInfectionRate;
     private float fTotalInfectionRate;
     [HideInInspector]
@@ -20,15 +19,18 @@ public class ResidentManager : MonoBehaviour {
     public GameObject goDialogueManager;
     private DialogueManager dm;
 
+    //leaderboard
+    public LeaderboardManager lm;
+
     void Start() {
         dm = goDialogueManager.GetComponent<DialogueManager>();
-        fTotalHappiness = fHappiness;
+        fTotalHappiness = 100;
         fTotalInfectionRate = 100;
         if (nDay < 1)
             nDay = 1;
         textDay.text = nDay.ToString();
-        textHappiness.text = "Happiness: " + fHappiness + " / " + fTotalHappiness;
-        textResident.text = "Infected: " + fInfectionRate + "%";
+        textHappiness.text = fHappiness.ToString("0.#") + "%";
+        textResident.text = fInfectionRate.ToString("0.#") + "%";
     }
 
     public void EndDay() {
@@ -38,6 +40,7 @@ public class ResidentManager : MonoBehaviour {
         //if this is above the top, there is no chance of a random event chaning the outcome
         //if it's below, you might get screwed over last minute. Strategy.
         dm.StartDialogue(re.dialogue);
+        fOverallHappiness += fHappiness;
         if (fInfectionRate >= fTotalInfectionRate) {
             EndGame();
             return;
@@ -47,13 +50,13 @@ public class ResidentManager : MonoBehaviour {
         }
         nDay += 1;
         textDay.text = nDay.ToString();
-        textHappiness.text = "Happiness: " + fHappiness + " / " + fTotalHappiness;
-        textResident.text = "Infected: " + fInfectionRate + "%";
+        textHappiness.text = fHappiness.ToString("0.#") + "%";
+        textResident.text = fInfectionRate.ToString("0.#") + "%";
     }
 
     public void UpdateText() {
-        textHappiness.text = "Happiness: " + fHappiness + " / " + fTotalHappiness;
-        textResident.text = "Infected: " + fInfectionRate + "%";
+        textHappiness.text = fHappiness.ToString("0.#") + "%";
+        textResident.text = fInfectionRate.ToString("0.#") + "%";
     }
 
     private void EndGame() {
@@ -65,6 +68,8 @@ public class ResidentManager : MonoBehaviour {
         CanvasGroup ui = GameObject.FindGameObjectWithTag("Game UI").GetComponent<CanvasGroup>();
         StartCoroutine(FadeUI(ui, '-'));
         CreateUI("Screens/Game Win");
+        lm.SaveScore((fOverallHappiness / nDay) * (5f / nDay));
+        Debug.Log($"Sending score with on day {nDay} average happiness {fOverallHappiness / nDay}, at over happiness {fOverallHappiness} at a score constant of {5f / nDay}");
     }
 
     IEnumerator FadeUI(CanvasGroup ui, char op) {
@@ -92,6 +97,9 @@ public class ResidentManager : MonoBehaviour {
 
     private void CreateUI(string sFilePath) {
         GameObject goScreen = Resources.Load<GameObject>(sFilePath);
+        //this assumes that everything is set up properly
+        goScreen.transform.GetChild(3).GetComponent<Text>().text = $"It took you {nDay} day" + ((nDay & 1) == 1 ? "" : "s");
+        goScreen.transform.GetChild(4).GetComponent<Text>().text = $"With an average happiness of {fOverallHappiness / nDay}";
         CanvasGroup cg = goScreen.GetComponent<CanvasGroup>();
         cg.alpha = 0;
         cg.blocksRaycasts = false;
@@ -105,10 +113,10 @@ public class ResidentManager : MonoBehaviour {
 
     public void IncreaseInfection() {
         fInfectionRate = Mathf.Clamp(fInfectionRate + 10, 0, 100f);
-        textResident.text = "Infected: " + fInfectionRate + "%";
+        textResident.text = fInfectionRate.ToString("0.#") + "%";
     }
     public void DecreaseInfection() {
         fInfectionRate = Mathf.Clamp(fInfectionRate - 10, 0, 100f);
-        textResident.text = "Infected: " + fInfectionRate + "%";
+        textResident.text = fInfectionRate.ToString("0.#") + "%";
     }
 }

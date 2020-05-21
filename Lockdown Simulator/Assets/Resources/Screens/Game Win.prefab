@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 586412595386500241}
   m_Layer: 5
   m_Name: Average Happiness
-  m_TagString: Untagged
+  m_TagString: Average Happiness
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 3831735122402972918}
   m_Layer: 5
   m_Name: Days Lasted
-  m_TagString: Untagged
+  m_TagString: Days Lasted
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
