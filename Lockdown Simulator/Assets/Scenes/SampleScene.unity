@@ -208,7 +208,7 @@ Animator:
   m_GameObject: {fileID: 27509624}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a00710ed5d9c18f4599ae86e824daf57, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2830bc10981a25a4e894c1f18009732c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1039,12 +1039,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 651454982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbdef9ac02199b247965f5f6dc53f3b1, type: 3}
+  m_Script: {fileID: 11500000, guid: c96f77d61a654ca4b8c20204d57fdf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fHappiness: 50
-  fInfectionRate: 5
-  nDay: 0
+  fInfectionRate: 10
+  nDay: 1
   textHappiness: {fileID: 594481403}
   textResident: {fileID: 472078847}
   textDay: {fileID: 1705285912}
