@@ -7,7 +7,7 @@ Make sure you have Unity 2019.3.10f1 installed, as this project was built in it.
 You will need to set up a Firebase Database and link it to your project, find out [here](https://firebase.google.com/docs/unity/setup)
 
 Unity should automatically set up everything you need otherwise.
-If Firebase does not install correctly for some reason, follow (Step 4)[https://firebase.google.com/docs/unity/setup]
+If Firebase does not install correctly for some reason, follow [Step 4](https://firebase.google.com/docs/unity/setup)
 
 If you are unable to build the project, navigate to Edit > Preferences > External Tools and make sure all the slashes in the dependencies are all using forward slashes.
 
