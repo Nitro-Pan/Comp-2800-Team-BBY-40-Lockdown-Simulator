@@ -612,7 +612,7 @@ MonoBehaviour:
   _emailField: {fileID: 595672062}
   _passwordField: {fileID: 414071432}
   _loginButton: {fileID: 543713750}
-  OnUserRegistered:
+  OnUserLogin:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 543713749}
@@ -626,7 +626,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnUserRegistrationFailed:
+  OnUserLoginFailed:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &543713750

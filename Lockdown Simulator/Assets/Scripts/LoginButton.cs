@@ -10,8 +10,8 @@ public class LoginButton : MonoBehaviour {
     [SerializeField] private InputField _passwordField;
     [SerializeField] private Button _loginButton;
     private Coroutine _loginCoroutine;
-    public UserLoginEvent OnUserRegistered = new UserLoginEvent();
-    public UserLoginFailedEvent OnUserRegistrationFailed = new UserLoginFailedEvent();
+    public UserLoginEvent OnUserLogin = new UserLoginEvent();
+    public UserLoginFailedEvent OnUserLoginFailed = new UserLoginFailedEvent();
 
     private void Reset() {
         _loginButton = FindObjectOfType<Button>();
@@ -51,11 +51,13 @@ public class LoginButton : MonoBehaviour {
 
         if (loginTask.Exception != null) {
             Debug.LogWarning($"Login task failed with {loginTask.Exception}");
-            OnUserRegistrationFailed.Invoke(loginTask.Exception);
+            OnUserLoginFailed.Invoke(loginTask.Exception);
         } else {
             Debug.Log($"Successfully logged in user {loginTask.Result.Email} ");
-            OnUserRegistered.Invoke(loginTask.Result);
+            OnUserLogin.Invoke(loginTask.Result);
         }
+
+        _loginCoroutine = null;
     }
 
     [System.Serializable]
