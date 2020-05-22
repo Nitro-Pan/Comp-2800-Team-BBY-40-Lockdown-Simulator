@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Lockdown Simulator
 
 ### Need to haves
@@ -15,3 +16,8 @@ If you are unable to build the project, navigate to Edit > Preferences > Externa
 The easiest way to import the project is to open up [Unity Hub](https://unity3d.com/get-unity/download) and add the Lockdown Simulator folder within the git repo.
 
 ### [04b Surprise Challenge #2b Testing Plan](https://docs.google.com/spreadsheets/d/1lLetkIzA8yzKw9L7GCsp-wdI_pL2tzsdSANLbGl0so0/edit?usp=sharing)
+=======
+# comp2800
+
+A game development project written in Unity for Comp 2800
+>>>>>>> ea32f42cebd3ede2b0eb0b4c227e897152f8295d

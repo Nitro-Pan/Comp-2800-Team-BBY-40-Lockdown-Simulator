@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using Firebase.Auth;
 using System;
@@ -17,7 +15,7 @@ public class DynamicLoadButton : MonoBehaviour {
     }
 
     private void OnDestroy() {
-        FirebaseAuth.DefaultInstance.StateChanged += HandleAuthStateChanged;
+        FirebaseAuth.DefaultInstance.StateChanged -= HandleAuthStateChanged;
     }
 
     private void HandleAuthStateChanged(object sender, EventArgs e) {
