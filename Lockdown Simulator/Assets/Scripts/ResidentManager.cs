@@ -99,7 +99,7 @@ public class ResidentManager : MonoBehaviour {
         GameObject goScreen = Resources.Load<GameObject>(sFilePath);
         //this assumes that everything is set up properly
         goScreen.transform.GetChild(3).GetComponent<Text>().text = $"It took you {nDay} day" + ((nDay & 1) == 1 ? "" : "s");
-        goScreen.transform.GetChild(4).GetComponent<Text>().text = $"With an average happiness of {fOverallHappiness / nDay}";
+        goScreen.transform.GetChild(4).GetComponent<Text>().text = "With an average happiness of " + (fOverallHappiness / nDay).ToString("0.#");
         CanvasGroup cg = goScreen.GetComponent<CanvasGroup>();
         cg.alpha = 0;
         cg.blocksRaycasts = false;
